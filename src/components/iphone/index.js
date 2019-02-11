@@ -49,10 +49,10 @@ export default class Iphone extends Component {
 		let url = "http://magicseaweed.com/api/228f31c96d7e78544234f9f4f4bd6869/forecast/?spot_id=" + id;
 		
 		$.ajax({
-			url: url,
+			url,
 			dataType: "jsonp",
 			success : this.parseResponse,
-			error : function(req, err){ console.log('API call failed ' + err); }
+			error(req, err){ console.log('API call failed ' + err); }
 		});
 		// once the data grabbed, hide the button
 		this.setState({ display: false });
@@ -77,7 +77,7 @@ export default class Iphone extends Component {
 		  
 			$.ajax({
 				url: "https://admiraltyapi.azure-api.net/uktidalapi/api/V1/Stations/" + id + "/TidalEvents?" + $.param(params),
-				beforeSend: function(xhrObj){
+				beforeSend(xhrObj){
 					// Request headers
 					xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","6cf59ae8480d4de2be13bae105e17196");
 				},
