@@ -54,6 +54,7 @@ export default class Iphone extends Component {
 			success : this.parseResponse,
 			error(req, err){ console.log('API call failed ' + err); }
 		});
+		//testing the git with this comment
 		// once the data grabbed, hide the button
 		this.setState({ display: false });
 	}
