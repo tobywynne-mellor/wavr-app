@@ -15,10 +15,6 @@ export default class Iphone extends Component {
 	// a constructor with initial set states
 	constructor(props){
 		super(props);
-		// temperature state
-		this.state.temp = "";
-		// button display state
-		this.setState({ display: true });
 
 		//Location state
 			// "name" : "Newquay",
@@ -43,7 +39,7 @@ export default class Iphone extends Component {
 			"swell" : {
 				"direction" : [],
 				"height" : [],
-				"period" : [],
+				"period" : []
 				// "isIncoming" : true -> instead of mini compasses we could say onshore/offshore
 			},
 			"weather" : {
@@ -89,7 +85,7 @@ export default class Iphone extends Component {
 			dataType: "jsonp"
 		})
 		.done((data) => {
-			console.log("fetchWeatherData success");
+			// console.log("fetchWeatherData success");
 			this.parseResponse(data, "weather");
 		})
 		.fail((req, err) => {
@@ -130,7 +126,7 @@ export default class Iphone extends Component {
 				data: "{body}"
 			})
 			.done((data) => {
-				console.log("fetchTideData success");
+				// console.log("fetchTideData success");
 				this.parseResponse(data, "tide");
 			})
 			.fail((req, err) => {
@@ -143,24 +139,29 @@ export default class Iphone extends Component {
 
 	// the main render method for the iphone component
 	render() {
-		// check if temperature data is fetched, if so add the sign styling to the page
-		const tempStyles = this.state.temp ? `${style.temperature} ${style.filled}` : style.temperature;
-		
 		// display all weather data
 		return (
 			<div class={ style.container }>
 				<div class={ style.header }>
-					<div class={ style.city }>{ this.state.locate }</div>
-					<div class={ style.conditions }>{ this.state.cond }</div>
-					<span class={ tempStyles }>{ this.state.temp }</span>
+					<div class={ style.city }>{ this.state.location.name }</div>
+					<div class={ style.conditions }>cold</div>
+					<span class={ style.temperature }>{this.state.weather.temperature}</span>
 				</div>
 				<div class={ style.details }></div>
-				<div class= { style_iphone.container }>
-					{ this.state.display ? <Button class={ style_iphone.button } clickFunction={ this.fetchWeatherData("1") }/ > : null }
-				</div>
+				
 			</div>
+			
 		);
 	}
+
+	componentDidMount() {
+		// this.fetchTideData(this.state.location.tide);
+		this.fetchWeatherData(this.state.location.weather);
+	}
+	/*===============================
+		parseResponse
+			-> parses data from APIs and stores in state
+	=================================*/
 
 	parseResponse = (parsed_json, mode) => {
 		console.log("parseResponse called");
@@ -180,27 +181,12 @@ export default class Iphone extends Component {
 				data.height.push(Math.round(point.Height*10)/10);
 			});
 
-			this.setState(Object.assign(this.state.tide,{eventType: data.eventType, dateTime: data.dateTime, height: data.height}));
+			this.setState(Object.assign(this.state.tide, data));
 
 			
 		} else if (mode === "weather") {
-			
-			// [0 - 39] typically 3 hour intervals
-			// localtimestamp (needs to be converted from UNIX format)
-			// solidRating (quality of surf rating)
-			
-			// SWELL
-			// swell.components[].direction (could use compassDirection instead)
-			// swell.components[].height
-			// swell.components[].period
 
-			// WEATHER
-			// condition.temperature
-			// wind.chill (feels like temperature based on wind and air temp)
-			// condition.weather (weather icon number, http://cdnimages.magicseaweed.com/30×30/{{ICON NUMBER}}.png.)
-			// wind.speed (mph)
-			// wind.direction (can use compassDirection)
-
+			//create data structure
 			let data = {
 				"timestamp" : [],
 				"solidRating" : [],
@@ -225,48 +211,29 @@ export default class Iphone extends Component {
 				}
 			};
 
+			//parse data into stucture
 			parsed_json.forEach(point => {
 				data.timestamp.push(point.localtimestamp);
 				data.solidRating.push(point.solidRating);
-				data.swell.components.primary.direction.push(point.swell.components.primary.direction);
-				//TODO: finish parsing this and set state
+				data.swell.primary.direction.push(point.swell.components.primary.direction);
+				data.swell.primary.height.push(point.swell.components.primary.height);
+				data.swell.primary.period.push(point.swell.components.primary.period);
+				data.swell.secondary.direction.push(point.swell.components.secondary.direction);
+				data.swell.secondary.height.push(point.swell.components.secondary.height);
+				data.swell.secondary.period.push(point.swell.components.secondary.period);
+				data.weather.temperature.push(point.condition.temperature);
+				data.weather.chill.push(point.wind.chill);
+				data.weather.iconNo.push(point.condition.weather);
+				data.weather.windSpeed.push(point.wind.speed);
+				data.weather.windDirection.push(point.wind.direction);
 			});
 
-			this.setState(Object.assign(this.state.weather,
-				{
-					timestamp : data.timestamp,
-					solidRating : data.solidRating,
-					swell : {
-						primary : {
-							direction : [],
-							height : [],
-							period : []
-						},
-						secondary : {
-							direction : [],
-							height : [],
-							period : []
-						}
-					},
-					weather : {
-						temperature : data.weather.temperature,
-						chill : data.weather.chill,
-						iconNo : data.weather.iconNo,
-						windSpeed : data.weather.windSpeed,
-						windDirection : data.weather.windDirection
-					}
-				}));
+			//set state
+			this.setState(Object.assign(this.state.weather, data));
 
 
 		} else {
 			console.log("error @parseResponse - unrecognised 'mode' argument: " + mode);
 		}
-		
-		// let location = parsed_json['name'];
-		// let temp_c = parsed_json['main']['temp'];
-		// let conditions = parsed_json['weather']['0']['description'];
-		
-		
-		// });
 	}
 }
