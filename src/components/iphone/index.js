@@ -6,7 +6,12 @@ import style_iphone from '../button/style_iphone';
 // import jquery for API calls
 import $ from 'jquery';
 import { isBoolean } from 'util';
-import swell from '..swell';
+import Top from '../top';
+import Swell from '../swell';
+import Weather from '../weather';
+import Tide from '../tide';
+import Footer from '../footer';
+
 
 export default class Iphone extends Component {
 //var Iphone = React.createClass({
@@ -147,7 +152,11 @@ export default class Iphone extends Component {
 		// display all weather data
 		return (
 			<div class={ style.container }>
-				<swell swell = { this.state.swell }/>
+				<Top location = { this.state.location }/>
+				<Swell swell = { this.state.swell }/>
+				<Weather/>
+				<Tide/>
+				<Footer/>
 				<div class={ style.header }>
 					<div class={ style.city }>{ this.state.location.name }</div>
 					<div class={ style.conditions }>cold</div>

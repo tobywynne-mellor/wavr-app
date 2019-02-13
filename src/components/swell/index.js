@@ -6,7 +6,7 @@ import { isBoolean } from 'util';
 import swellBoxes from '../swellBoxes';
 import swellGraph from '../swellGraph';
 
-export default class swell extends Component {
+export default class Swell extends Component {
 
 	constructor(props){
 		super(props);
@@ -27,10 +27,13 @@ export default class swell extends Component {
 	}
     
 	render() {
-		<div class={ style.swell }>
-            <swellBoxes swell = { this.props.swell } />
-            <swellGraph swell = { this.excludeDirection() } />
-        </div>;
+        return (
+            <div class={ style.swell }>
+                <p>SWELL</p>
+                <swellBoxes swell = { this.props.swell } />
+                {/* <swellGraph swell = { this.excludeDirection() } /> */}
+            </div>
+        );
 	}
     
 	excludeDirection() {
