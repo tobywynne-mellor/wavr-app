@@ -5,9 +5,8 @@ import style from './style';
 import style_iphone from '../button/style_iphone';
 // import jquery for API calls
 import $ from 'jquery';
-// import the Button component
-import Button from '../button';
 import { isBoolean } from 'util';
+import swell from '..swell';
 
 export default class Iphone extends Component {
 //var Iphone = React.createClass({
@@ -37,10 +36,16 @@ export default class Iphone extends Component {
 			"timestamp" : [],
 			"solidRating" : [],
 			"swell" : {
-				"direction" : [],
-				"height" : [],
-				"period" : []
-				// "isIncoming" : true -> instead of mini compasses we could say onshore/offshore
+				"primary" : {
+					"direction" : [],
+					"height" : [],
+					"period" : []
+				},
+				"secondary" : {
+					"direction" : [],
+					"height" : [],
+					"period" : []
+				}
 			},
 			"weather" : {
 				"temperature" : [],
@@ -142,13 +147,13 @@ export default class Iphone extends Component {
 		// display all weather data
 		return (
 			<div class={ style.container }>
+				<swell swell = { this.state.swell }/>
 				<div class={ style.header }>
 					<div class={ style.city }>{ this.state.location.name }</div>
 					<div class={ style.conditions }>cold</div>
-					<span class={ style.temperature }>{this.state.weather.temperature}</span>
+					{typeof this.state.weather.temperature !== "undefined" ? <span class={ style.temperature }>{this.state.weather.temperature[0]}</span> : null }
 				</div>
 				<div class={ style.details }></div>
-				
 			</div>
 			
 		);
