@@ -11,6 +11,6 @@ export default class swellBoxes extends Component {
 	}
 
 	render() {
-        
+		return <p>Swellboxes</p>
 	}
 }

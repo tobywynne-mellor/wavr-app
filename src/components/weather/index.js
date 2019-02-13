@@ -3,6 +3,8 @@ import { h, render, Component } from 'preact';
 // import stylesheets for ipad & button
 import style from './style';
 import { isBoolean } from 'util';
+import Conditions from  '../conditions';
+import Wind from  '../wind';
 
 export default class Weather extends Component {
 
@@ -24,6 +26,8 @@ export default class Weather extends Component {
         return (
             <div>
                 <p>WEATHER</p>
+                <Conditions/>
+                <Wind/>
             </div>
         );
 	}

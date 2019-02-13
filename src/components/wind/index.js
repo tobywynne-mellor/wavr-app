@@ -4,12 +4,17 @@ import { h, render, Component } from 'preact';
 import style from './style';
 import { isBoolean } from 'util';
 
-export default class swellGraph extends Component {
-	constructor(props) {
+export default class Wind extends Component {
+
+	constructor(props){
 		super(props);
 	}
-
+    
 	render() {
-		return <p>SwellGraph</p>;
+        return (
+            <div>
+                <p>Wind</p>
+            </div>
+        );
 	}
 }

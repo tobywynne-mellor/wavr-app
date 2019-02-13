@@ -73,11 +73,13 @@
     "webpack-dev-server": "^1.15.0"
   },
   "dependencies": {
+    "chartist": "^0.11.0",
     "preact": "^8.4.2",
     "preact-compat": "^3.0.0",
     "preact-router": "^2.0.0",
     "promise-polyfill": "^6.0.2",
     "proptypes": "^0.14.3",
+    "react-chartist": "^0.13.3",
     "serve": "^2.0.0"
   },
   "main": "webpack.config.babel.js",

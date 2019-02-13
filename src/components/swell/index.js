@@ -3,8 +3,8 @@ import { h, render, Component } from 'preact';
 // import stylesheets for ipad & button
 import style from './style';
 import { isBoolean } from 'util';
-import swellBoxes from '../swellBoxes';
-import swellGraph from '../swellGraph';
+import SwellBoxes from '../swellBoxes';
+import SwellGraph from '../swellGraph';
 
 export default class Swell extends Component {
 
@@ -30,16 +30,9 @@ export default class Swell extends Component {
         return (
             <div class={ style.swell }>
                 <p>SWELL</p>
-                <swellBoxes swell = { this.props.swell } />
-                {/* <swellGraph swell = { this.excludeDirection() } /> */}
+                <SwellBoxes swell = { this.props.swell } />
+                <SwellGraph swell = { this.props.swell } />
             </div>
         );
-	}
-    
-	excludeDirection() {
-		let copy = JSON.parse(JSON.stringify(this.props.swell));
-		delete copy.primary.direction;
-		delete copy.secondary.direction;
-		return copy;
 	}
 }
