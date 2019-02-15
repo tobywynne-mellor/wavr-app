@@ -1,16 +1,16 @@
 // import preact
 import { h, render, Component } from 'preact';
-// import stylesheets for ipad & button
+// import style sheet
 import style from './style';
 import { isBoolean } from 'util';
 
-export default class swellBoxes extends Component {
+export default class Title extends Component {
 
-	constructor(props) {
+	constructor(props){
 		super(props);
 	}
-
+    
 	render() {
-		return <p>Swellboxes</p>
+		return <div><h3>{ this.props.text }</h3></div>;
 	}
 }

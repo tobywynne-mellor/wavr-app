@@ -8,23 +8,13 @@ export default class Tide extends Component {
 
 	constructor(props){
 		super(props);
-        
-        //e.g. 
-        // this.props.weather = {
-        // 		"temperature" : [],
-		//      "chill" : [],
-		//      "iconNo" : [],
-		//      "windSpeed" : [],
-		//      "windDirection" : []
-        // 	}
-    
 	}
     
 	render() {
-        return (
+		return (
             <div>
                 <p>TIDE</p>
             </div>
-        );
+		);
 	}
 }

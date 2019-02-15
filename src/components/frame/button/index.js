@@ -3,6 +3,9 @@ import { h, render, Component } from 'preact';
 	
 export default class Button extends Component {
 
+	constructor(props) {
+		super(props);
+	}
 	// rendering a function when the button is clicked
 	render() {
 		let cFunction = this.props.clickFunction;
@@ -14,7 +17,7 @@ export default class Button extends Component {
 		return (
 			<div>
 				<button onClick={cFunction}>
-					Display Weather
+					{ this.props.text }
 				</button>
 			</div>
 		);
