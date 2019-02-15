@@ -32,7 +32,13 @@ export default class swellGraph extends Component {
 				showGrid: false
 			}
 		  };
-		return <ChartistGraph data={lineChartData} options={lineChartOptions} type={'Line'}/>;
+
+		  let styles = {
+			  fill: "#41BDFF",
+			  backgroundColor: "#4E4E4E"
+		};
+
+		return <ChartistGraph data={lineChartData} options={lineChartOptions} type={'Line'} style={styles}/>;
 
 	}
 
