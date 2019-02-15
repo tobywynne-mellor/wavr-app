@@ -3,6 +3,9 @@ import { h, render, Component } from 'preact';
 // import stylesheets for ipad & button
 import style from './style';
 import { isBoolean } from 'util';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 export default class Stars extends Component {
 
@@ -10,17 +13,12 @@ export default class Stars extends Component {
 		super(props);
 	}
 
-	//call this.props.changeTime(hour), hour: 0-23
-    
 	render() {
-
-		let s = "";
-		for (let i = 0; i < this.props.stars; i++){
-			s = s + " star";
-		}
-
+		library.add(faStar);
 		return (
-            <div>{s}</div>
+			<div>
+				{Array(this.props.stars).fill(<FontAwesomeIcon icon={faStar} />)}
+			</div>
 		);
 	}
 }

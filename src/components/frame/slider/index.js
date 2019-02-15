@@ -3,6 +3,7 @@ import { h, render, Component } from 'preact';
 import style from './style';
 import { isBoolean } from 'util';
 import Stars from '../stars';
+import SurfRating from '../surfrating';
 
 export default class Slider extends Component {
 
@@ -16,7 +17,7 @@ export default class Slider extends Component {
 		return (
             <div>
                 <p>Slider</p>
-				<Stars stars = {this.props.rating[0]} />
+				<SurfRating rating = {this.props.rating[0]}/>
             </div>
 		);
 	}
