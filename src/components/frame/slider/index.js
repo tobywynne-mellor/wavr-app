@@ -11,6 +11,7 @@ export default class Slider extends Component {
 		super(props);
 		//boring stuff here
 		const today = new Date();
+		this.state.current = today.getHours();
 		this.state.value = today.getHours();
 		this.handleChange = this.handleChange.bind(this);
 	}
@@ -27,7 +28,7 @@ export default class Slider extends Component {
 			<div class="container">
 			  <hr/>
 			  <h5>Slider</h5>
-        <input type="range" min="0" max="23" value={this.state.value} id="slider" oninput={this.handleChange}/>
+        <input type="range" min={this.state.current} max="23" value={this.state.value} id="slider" oninput={this.handleChange}/>
 				<p>Time: <span id="time">{this.state.value}</span>:00</p>
       	<SurfRating rating = {this.props.rating[0]}/>
       </div>
