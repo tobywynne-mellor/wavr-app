@@ -43,7 +43,7 @@ export default class Frame extends Component {
 								<Swell locationName = { this.props.data.location.name } swell = { this.props.data.swell } time = { this.state.time } day = { this.state.day }/>
 								<Weather weather = { this.props.data.weather } />
 								<Tide tide = { this.props.data.tide } time = { this.state.time } day = { this.state.day }/>
-                <Slider changeTime = { this.changeTime } time = { this.state.time } rating = { this.props.data.solidRating } />
+                <Slider changeTime = { this.changeTime } time = { this.state.time } rating = { this.props.data.solidRating } timeSt= { this.props.data.timestamp }/>
 								<DaySelection changeDay = { this.changeDay } day = { this.state.day } />
             </div>
 		);

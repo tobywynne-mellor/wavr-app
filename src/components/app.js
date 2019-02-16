@@ -91,7 +91,7 @@ export default class App extends Component {
 	fetchWeatherData = (id) => {
 		// API URL with a structure of : ttp://api.wunderground.com/api/key/feature/q/country-code/city.json
 		let url = "http://magicseaweed.com/api/228f31c96d7e78544234f9f4f4bd6869/forecast/?spot_id=" + id;
-		
+
 		$.ajax({
 			url,
 			dataType: "jsonp"
@@ -148,10 +148,10 @@ export default class App extends Component {
 					<Frame data = { this.state } changeLocation = { this.changeLocation }/>
 				) : (
 					<Loading/>
-					
+
 				)}
 			</div>
-			
+
 		);
 	}
 
@@ -192,7 +192,7 @@ export default class App extends Component {
 
 			this.setState(Object.assign(this.state.tide, data));
 
-			
+
 		} else if (mode === "weather") {
 
 			//create data structure
@@ -222,7 +222,7 @@ export default class App extends Component {
 
 			//parse data into stucture
 			parsed_json.forEach(point => {
-				data.timestamp.push(point.localtimestamp);
+				data.timestamp.push(point.timestamp);
 				data.solidRating.push(point.solidRating);
 				data.swell.primary.direction.push(point.swell.components.primary.direction);
 				data.swell.primary.height.push(point.swell.components.primary.height);
