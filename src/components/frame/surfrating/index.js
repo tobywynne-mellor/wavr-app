@@ -8,15 +8,16 @@ export default class SurfRating extends Component {
 
 	constructor(props){
 		super(props);
+		console.log(this.props.rating)
 	}
 
 	//call this.props.changeTime(hour), hour: 0-23
-    
+
 	render() {
 		return (
             <div>
-							<h6>SURF RATING</h6>
 							<Stars stars = {this.props.rating} />
+							<hr/>
 						</div>
 		);
 	}

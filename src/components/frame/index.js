@@ -21,6 +21,8 @@ export default class Frame extends Component {
 		this.state.time = today.getHours(); // maybe round to nearest swell reading?
 		this.state.day = today.getDay();
 
+		this.changeTime = this.changeTime.bind(this);
+		this.changeDay = this.changeDay.bind(this);
 	}
 
 	changeTime(val) {
@@ -30,8 +32,8 @@ export default class Frame extends Component {
 	changeDay(val) {
 		this.setState({day : val});
 	}
-	
-	
+
+
 	render() {
 		return (
             <div>
