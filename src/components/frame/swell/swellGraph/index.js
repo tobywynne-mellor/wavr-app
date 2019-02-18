@@ -10,6 +10,12 @@ export default class swellGraph extends Component {
 		super(props);
 	}
 
+	// getPoints(height, period, maxHight, minHeight){
+	// 	let points = [];
+
+	// 	for(var i = 0; i < round(period/))
+	// }
+
 	render() {
 		let lineChartData = {
 			labels: [1, 2, 3, 4, 5, 6, 7, 8],

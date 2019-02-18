@@ -1,3 +1,4 @@
+/* eslint-disable no-mixed-spaces-and-tabs */
 // import preact
 import { h, render, Component } from 'preact';
 import style from './style.less';
@@ -9,13 +10,8 @@ export default class Slider extends Component {
 
 	constructor(props){
 		super(props);
-		//boring stuff here
 		this.state.currentTime = new Date().getHours();
 		this.handleChange = this.handleChange.bind(this);
-
-    //converting timestamp to actual date
-		var date = new Date(this.props.timeSt[0]);
-		this.state.timestamp = date.toDateString();
 	}
 
 
@@ -29,12 +25,22 @@ export default class Slider extends Component {
 			<div class="container">
 			  <hr/>
 			  <h5>Slider</h5>
-				<h3>Timestamp from API: { this.props.timeSt[0] }</h3>
-				<h3>Timestamp converted: { this.state.timestamp }</h3>
+				<h3>Timestamp from API: { this.props.timeSt }</h3>
+				<h3>Timestamp converted: { this.convertTimestamp(this.props.timeSt) }</h3>
         <input type="range" min={this.state.currentTime} max="23" value={this.props.time} id="slider" oninput={this.handleChange}/>
 				<p>Time: <span id="time">{this.props.time}</span>:00</p>
       	<SurfRating rating = {this.props.rating[0]}/>
       </div>
 		);
 	}
+
+	componentDidMount(){
+		// this.setState({timestamp : date.toDateString()});
+	}
+
+	convertTimestamp(str) {
+		let date = new Date(parseInt(str,10)*1000);
+		return date.getHours();
+	}
+
 }

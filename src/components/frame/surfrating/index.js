@@ -8,7 +8,6 @@ export default class SurfRating extends Component {
 
 	constructor(props){
 		super(props);
-		console.log(this.props.rating)
 	}
 
 	//call this.props.changeTime(hour), hour: 0-23
