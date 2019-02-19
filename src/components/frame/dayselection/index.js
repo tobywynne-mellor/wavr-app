@@ -10,7 +10,9 @@ export default class DaySelection extends Component {
 		super(props);
 	}
 
-	//call this.props.changeDay(day), day is 1-7 for day of week
+	//returns 0-2
+
+	//call this.props.changeDay(day).bind(), day is 1-7 for day of week
     
 	render() {
 		return (

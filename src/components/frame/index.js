@@ -20,6 +20,19 @@ export default class Frame extends Component {
 		const today = new Date();
 		this.state.time = today.getHours(); // maybe round to nearest swell reading?
 		this.state.day = today.getDay();
+		
+		//TODO: values for now
+		// this.state.now = {}
+		// get index from slider and day
+		// contruct now using index
+		/* function constructNow(time(), day(0,1 or 2)){
+			//slider gets 
+		}*/
+
+		/*
+			getTime() - returns textual form
+			getDay() - ditto
+		*/
 
 		this.changeTime = this.changeTime.bind(this);
 		this.changeDay = this.changeDay.bind(this);
@@ -36,7 +49,7 @@ export default class Frame extends Component {
 
 	render() {
 		return (
-            <div>
+            <div class = { style.grid }>
                 <Menu name = { this.props.data.location.name }/>
 								<h1>Time: { this.state.time }</h1>
                 <h1>Day: { this.state.day }/7</h1>
@@ -48,4 +61,8 @@ export default class Frame extends Component {
             </div>
 		);
 	}
+
+	//TODO: nowConstructor -change component to get props from now object
+
+
 }
