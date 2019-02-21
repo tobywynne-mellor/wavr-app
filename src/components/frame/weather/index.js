@@ -27,8 +27,8 @@ export default class Weather extends Component {
 		return (
             <div>
                 <Title text = "Weather"/>
-                <Conditions/>
-                <Wind/>
+                <Conditions temperature = {this.props.weather.temperature[this.props.index]} chill = { this.props.weather.chill[this.props.index] } iconNo = { this.props.weather.iconNo[this.props.index] }/>
+                <Wind direction = { this.props.weather.windDirection[this.props.index] } speed = { this.props.weather.windSpeed[this.props.index] } />
             </div>
 		);
 	}
