@@ -15,7 +15,7 @@ export default class Swell extends Component {
     
 	render() {
 		return (
-            <div class = { style.swell }>
+            <div class = { style.head }>
                 <div class = { style.header }>
                     <Title text = "Swell"/>
                     {/* for tool tip: https://react-bootstrap.github.io/components/overlays/#tooltips */}
