@@ -19,7 +19,7 @@ export default class DaySelection extends Component {
 	  this.setState({
 	    day: event.target.value
 	  });
-		this.props.changeDay(event.target.value).bind;
+		this.props.changeDay(event.target.value).bind(this);
 	}
 
 	// renders radio buttons
