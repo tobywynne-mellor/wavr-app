@@ -1,5 +1,3 @@
-//testing commit
-
 // import preact
 import { h, render, Component } from 'preact';
 // import stylesheets for ipad & button
@@ -10,18 +8,57 @@ export default class DaySelection extends Component {
 
 	constructor(props){
 		super(props);
+		this.handleChange = this.handleChange.bind(this);
+		this.state = {
+	      day: '0'
+	  };
 	}
 
-	//returns 0-2
+	//event handler for radio button selection
+	handleChange(event) {
+	  this.setState({
+	    day: event.target.value
+	  });
+		this.props.changeDay(event.target.value).bind(this);
+	}
 
-	//call this.props.changeDay(day).bind(), day is 1-7 for day of week
-
+	// renders radio buttons
 	render() {
 		return (
-            <div>
-                <p>Day Selection</p>
-								<p>testing commit</p>
-            </div>
+        <div>
+						<ul>
+							<li>
+								<label>
+									<input
+										type="radio"
+										value="0"
+										checked={this.state.day === "0"}
+										onChange={this.handleChange}
+									/>Today
+								</label>
+							</li>
+							<li>
+								<label>
+									<input
+										type="radio"
+										value="1"
+										checked={this.state.day === "1"}
+										onChange={this.handleChange}
+									/>Tomorrow
+								</label>
+							</li>
+							<li>
+								<label>
+									<input
+										type="radio"
+										value="2"
+										checked={this.state.day === "2"}
+										onChange={this.handleChange}
+									/>Next Day
+								</label>
+							</li>
+						</ul>
+        </div>
 		);
 	}
 }
