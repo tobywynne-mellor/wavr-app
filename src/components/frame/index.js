@@ -95,12 +95,12 @@ export default class Frame extends Component {
 	render() {
 		return (
             <div class = { style.grid }>
-                <Menu name = { this.props.data.location.name }/>
-								<Swell locationName = { this.props.data.location.name } swell = { this.props.data.swell } index = {this.state.index}/>
-								<Weather weather = { this.props.data.weather } index = { this.state.index } />
-								<Tide tide = { this.props.data.tide } day = { this.state.day }/>
-                <Slider changeTime = { this.changeTime } time = { this.state.time } timeText = {this.getTime()} rating = { this.props.data.solidRating[this.state.index] } timeSt= { this.props.data.timestamp[this.state.index] }/>
-								<DaySelection changeDay = { this.changeDay } day = { this.state.day } daysText = { this.getDays() }/>
+                <Menu class = { style.menu } name = { this.props.data.location.name }/>
+								<Swell class = { style.swell } locationName = { this.props.data.location.name } swell = { this.props.data.swell } index = {this.state.index}/>
+								<Weather class = { style.weather } weather = { this.props.data.weather } index = { this.state.index } />
+								<Tide class = { style.tide } tide = { this.props.data.tide } day = { this.state.day }/>
+                <Slider class = { style.slider } changeTime = { this.changeTime } time = { this.state.time } timeText = {this.getTime()} rating = { this.props.data.solidRating[this.state.index] } timeSt= { this.props.data.timestamp[this.state.index] }/>
+								<DaySelection class = { style.dayselection } changeDay = { this.changeDay } day = { this.state.day } daysText = { this.getDays() }/>
             </div>
 		);
 	}
