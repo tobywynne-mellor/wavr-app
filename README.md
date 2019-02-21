@@ -1,4 +1,4 @@
-# Wavr - Surfer's Weather App
+# Wavr - The Surfer's Weather App
 
 ## Set-Up Guide
 - [Installation](#installation)
