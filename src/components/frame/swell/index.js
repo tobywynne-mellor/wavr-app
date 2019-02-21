@@ -21,8 +21,8 @@ export default class Swell extends Component {
                     {/* for tool tip: https://react-bootstrap.github.io/components/overlays/#tooltips */}
                 </div>
                 {/* {console.log(this.props.swell)} */}
-                <SwellBoxes swell = { this.props.swell} />
-                <SwellGraph swell = { this.props.swell} />
+                <SwellBoxes swell = { this.props.swell} index = {this.props.index}/>
+                <SwellGraph swell = { this.props.swell} index = {this.props.index}/>
             </div>
 		);
 	}
