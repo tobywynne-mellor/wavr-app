@@ -100,6 +100,7 @@ export default class App extends Component {
 			// console.log("fetchWeatherData success");
 			this.parseResponse(data, "weather");
 			this.setState({mswLoading : false});
+			
 		})
 		.fail((req, err) => {
 			console.log('API call failed ' + err);

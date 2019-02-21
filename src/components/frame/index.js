@@ -49,12 +49,15 @@ export default class Frame extends Component {
 		return this.state.time + ":00 - " + next + ":00";
 	}
 
-	//returns textual version of day
-	getDay() {
-		let today = new Date();
-		let day = today.getDay();
 
-		switch (day + this.state.day) {
+	getDays() {
+		let today = new Date().getDay();
+		return [this.getDay(today+1), this.getDay(today+2)];
+	}
+
+	//returns textual version of day
+	getDay(day) {
+		switch (day) {
 			case 0:
 				return "Sunday";
 			case 1:
@@ -86,7 +89,7 @@ export default class Frame extends Component {
 
 	//returns the index where data can before for current day and time
 	calcIndex(time, day) {
-		return day*12 + time/3;
+		return Math.round(day*12 + (time/3));
 	}
 
 	render() {
@@ -97,7 +100,7 @@ export default class Frame extends Component {
 								<Weather weather = { this.props.data.weather } index = { this.state.index } />
 								<Tide tide = { this.props.data.tide } day = { this.state.day }/>
                 <Slider changeTime = { this.changeTime } time = { this.state.time } timeText = {this.getTime()} rating = { this.props.data.solidRating[this.state.index] } timeSt= { this.props.data.timestamp[this.state.index] }/>
-								<DaySelection changeDay = { this.changeDay } day = { this.state.day } dayText = { this.getDay() }/>
+								<DaySelection changeDay = { this.changeDay } day = { this.state.day } daysText = { this.getDays() }/>
             </div>
 		);
 	}

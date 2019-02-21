@@ -11,7 +11,7 @@ export default class DaySelection extends Component {
 		this.handleChange = this.handleChange.bind(this);
 		this.state = {
 	      day: '0'
-	  };
+		};
 	}
 
 	//event handler for radio button selection
@@ -19,7 +19,7 @@ export default class DaySelection extends Component {
 	  this.setState({
 	    day: event.target.value
 	  });
-		this.props.changeDay(event.target.value).bind(this);
+		this.props.changeDay(event.target.value);
 	}
 
 	// renders radio buttons
@@ -44,7 +44,7 @@ export default class DaySelection extends Component {
 										value="1"
 										checked={this.state.day === "1"}
 										onChange={this.handleChange}
-									/>Tomorrow
+									/>{this.props.daysText[0]}
 								</label>
 							</li>
 							<li>
@@ -54,7 +54,7 @@ export default class DaySelection extends Component {
 										value="2"
 										checked={this.state.day === "2"}
 										onChange={this.handleChange}
-									/>Next Day
+									/>{this.props.daysText[1]}
 								</label>
 							</li>
 						</ul>

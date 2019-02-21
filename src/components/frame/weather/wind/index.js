@@ -11,12 +11,12 @@ export default class Wind extends Component {
 	}
     
 	render() {
-        return (
+		return (
             <div>
                 <p>Wind</p>
                 <p>speed: { this.props.speed }</p>
                 <p>direction: { this.props.direction }</p>
             </div>
-        );
+		);
 	}
 }
