@@ -10,26 +10,19 @@ export default class DaySelection extends Component {
 		super(props);
 		this.handleChange = this.handleChange.bind(this);
 		this.state = {
-	      day: ''
+	      day: '0'
 	  };
 	}
 
-
-	convertTimestamp(str) {
-		let date = new Date(parseInt(str,10)*1000);
-		return date.getHours();
-	}
-
+	//event handler for radio button selection
 	handleChange(event) {
 	  this.setState({
 	    day: event.target.value
 	  });
+		this.props.changeDay(event.target.value).bind;
 	}
 
-	//returns 0-2
-
-	//call this.props.changeDay(day).bind(), day is 1-7 for day of week
-
+	// renders radio buttons
 	render() {
 		return (
         <div>
