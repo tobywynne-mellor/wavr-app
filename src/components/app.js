@@ -16,6 +16,7 @@ export default class App extends Component {
 	constructor(props){
 		super(props);
 
+		this.changeLocation = this.changeLocation.bind(this);
 		this.state.mswLoading = true;
 		this.state.admiralLoading = true;
 
@@ -56,29 +57,26 @@ export default class App extends Component {
 
 	changeLocation(val) {
 
-		console.log("changeLocation called");
-
-		const newquay = {
+		let newquay = {
 			name : "Newquay",
 			tide : "0546",
 			weather : "1"
 		};
-
-		const thurso = {
+		let thurso =  {
 			name : "Thurso",
 			tide : "0298",
 			weather : "47"
 		};
 
-		// //someting like this
-		// if (val === "thurso") {
-		// 	this.props.setState(Object.assign(this.state.tide, thurso));
-		// } else if (val === "newquay") {
-		// 	this.props.setState(Object.assign(this.state.tide, newquay));
-		// } else {
-		// 	console.log("invalid location");
-		// }
-
+		if (val === "newquay" && this.state.location.name !== "Newquay"){
+			console.log("Changing location...");
+			this.setState(Object.assign(this.state.location, newquay));
+			this.componentDidMount();
+		} else if (val === "thurso" && this.state.location.name !== "Thurso"){
+			console.log("Changing location...");
+			this.setState(Object.assign(this.state.location, thurso));
+			this.componentDidMount();
+		}
 	}
 
 	/*=============================================
@@ -100,7 +98,7 @@ export default class App extends Component {
 			// console.log("fetchWeatherData success");
 			this.parseResponse(data, "weather");
 			this.setState({mswLoading : false});
-			
+
 		})
 		.fail((req, err) => {
 			console.log('API call failed ' + err);
@@ -158,17 +156,19 @@ export default class App extends Component {
 
 	//called after render
 	componentDidMount() {
+		console.log("Fetching data from API...")
 		this.fetchTideData(this.state.location.tide);
 		this.fetchWeatherData(this.state.location.weather);
 	}
 
 	////called once state is changed e.g. the location and causes render function to be called again
-	// componentDidUpdate(prevProps, prevState) {
-	// 	if (prevState.location.name !== this.state.location.name){
-	// 		this.fetchTideData(this.state.location.tide);
-	// 		this.fetchWeatherData(this.state.location.weather);
-	// 	}
-	// }
+	//componentDidUpdate(prevState) {
+	 	//if (prevState.location.name !== this.state.location.name){
+		//	console.log("Fetching new data");
+		//	this.fetchTideData(this.state.location.tide);
+	 	//	this.fetchWeatherData(this.state.location.weather);
+	 	//}
+ 	//}
 
 	/*===============================
 		parseResponse

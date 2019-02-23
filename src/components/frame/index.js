@@ -17,7 +17,7 @@ export default class Frame extends Component {
 		super(props);
 
 		const today = new Date();
-		
+
 		//day : 0, 1 or 2
 		//time : 0, 3, 6, 9, 12, 15, 18, 21
 
@@ -95,7 +95,7 @@ export default class Frame extends Component {
 	render() {
 		return (
             <div class = { style.grid }>
-                <Menu name = { this.props.data.location.name }/>
+                <Menu name = { this.props.data.location.name } setLocation = {this.props.changeLocation}/>
 								<Swell locationName = { this.props.data.location.name } swell = { this.props.data.swell } index = {this.state.index}/>
 								<Weather weather = { this.props.data.weather } index = { this.state.index } />
 								<Tide tide = { this.props.data.tide } day = { this.state.day }/>

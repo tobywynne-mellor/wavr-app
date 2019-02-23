@@ -11,27 +11,32 @@ export default class Menu extends Component {
 	constructor(props){
 		super(props);
 
+		this.menuClose = this.menuClose.bind(this)
 		this.state.open = false;
 	}
 
-	// menuOpen() {
-	// 	this.setState({open : true});
-	// }
+	menuOpen() {
+		this.setState({open : true});
+	}
 
-	// menuClose() {
-	// 	this.setState({open : false});
-	// }
-    
+	menuClose() {
+		this.setState({open : false});
+	}
+
+	changeLocation(value) {
+		this.props.setLocation(value)
+		this.menuClose()
+	}
+
 	render() {
 		return (
             <div>
 							<Title text = {this.props.name}/>
-								{/* <Button onClick = { this.menuOpen() }/> */}
-								{/* { this.state.open ? <div class = { style.menu }>
-									<Button onClick = { this.props.changeLocation("newquay") } text = "Newquay"/>
-									<Button onClick = { this.props.changeLocation("thurso") } text = "Thurso"/>
-									{perhaps use this: https://github.com/negomi/react-burger-menu}
-								</div> : null} */}
+							<Button clickFunction = { this.menuOpen.bind(this) } text="v"/>
+							{ this.state.open ? <div class = { style.menu }>
+									<Button clickFunction = { this.changeLocation.bind(this, "newquay") } text = "Newquay"/>
+									<Button clickFunction = { this.changeLocation.bind(this, "thurso") } text = "Thurso"/>
+								</div> : null}
 						</div>
 		);
 	}
