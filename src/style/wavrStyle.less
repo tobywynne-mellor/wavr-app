@@ -1,0 +1,36 @@
+// Colours
+@primaryBlue : #41BDFF;
+@secondaryBlue : #0D89CA;
+@background : #323232;
+@backdropGrey : #4E4E4E;
+@white : #F3F3F3;
+@starColour: #D8D8D8; //same as cloud colour
+@compassBlack : #000;
+@red : #E91D29;
+
+// Text
+@font-face {
+    font-family: JohnstonReg;
+    src: url(fonts/johnstonReg.woff);
+}
+@fontFamily : JohnstonReg;
+@extraLargeFont : 24px; // for compass dir
+@largeFont : 20px; // for titles
+@mediumFont : 14px; // for descriptions/subtitles
+@smallFont : 12px; // for small labels
+
+// Padding
+@sectionPadding : 5px;
+
+// Mixins
+/* declare as follows
+    .swell {
+        .section;
+    }
+*/
+.section() {
+    background-color: @background;
+    padding: @sectionPadding;
+    color: @white;
+    font-family: @fontFamily;
+}
