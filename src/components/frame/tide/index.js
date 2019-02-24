@@ -9,10 +9,10 @@ export default class Tide extends Component {
 	constructor(props){
 		super(props);
 	}
-    
+
 	render() {
 		return (
-            <div>
+            <div class = { style.tide }>
                 <p>TIDE</p>
             </div>
 		);

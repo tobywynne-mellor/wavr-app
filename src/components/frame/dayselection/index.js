@@ -25,7 +25,7 @@ export default class DaySelection extends Component {
 	// renders radio buttons
 	render() {
 		return (
-        <div>
+        <div class = {style.daySel}>
 						<ul>
 							<li>
 								<label>

@@ -7,15 +7,15 @@ import SwellBoxes from './swellBoxes';
 import SwellGraph from './swellGraph';
 import Title from '../title';
 
-export default class Swell extends Component {
+export default class Swedll extends Component {
 
 	constructor(props){
 		super(props);
 	}
-    
+
 	render() {
 		return (
-            <div class = { style.head }>
+            <div class = { style.swell }>
                 <div class = { style.header }>
                     <Title text = "Swell"/>
                     {/* for tool tip: https://react-bootstrap.github.io/components/overlays/#tooltips */}
