@@ -6,4 +6,21 @@
 
 .slider {
     .section;
+    display: grid;
+    grid-template-columns: 40% 20% 40%;
+    grid-template-rows: 20% 80%;
+    grid-template-areas: ".       slide   .       "
+                         "stars   .       timeText";
+}
+
+#slider{
+    grid-area: "slide";
+}
+
+#stars{
+    grid-area: "stars";
+}
+
+#timeText{
+    grid-area: "timeText";
 }

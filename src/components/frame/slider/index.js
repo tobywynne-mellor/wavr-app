@@ -23,8 +23,8 @@ export default class Slider extends Component {
 		return (
 			<div class= { style.slider }>
         <input type="range" min="0" max="21" value={this.props.time} step = "3" id="slider" oninput={this.handleChange}/>
-				<p>Time: {this.props.timeText}</p>
-      	<SurfRating rating = {this.props.rating}/>
+      	<SurfRating rating = {this.props.rating} id = "stars"/>
+				<p id = "timeText">Time: {this.props.timeText}</p>
       </div>
 		);
 	}

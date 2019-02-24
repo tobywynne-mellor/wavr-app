@@ -7,7 +7,7 @@ import SwellBoxes from './swellBoxes';
 import SwellGraph from './swellGraph';
 import Title from '../title';
 
-export default class Swedll extends Component {
+export default class Swell extends Component {
 
 	constructor(props){
 		super(props);
@@ -16,13 +16,17 @@ export default class Swedll extends Component {
 	render() {
 		return (
             <div class = { style.swell }>
-                <div class = { style.header }>
-                    <Title text = "Swell"/>
-                    {/* for tool tip: https://react-bootstrap.github.io/components/overlays/#tooltips */}
-                </div>
-                {/* {console.log(this.props.swell)} */}
-                <SwellBoxes swell = { this.props.swell} index = {this.props.index}/>
-                <SwellGraph swell = { this.props.swell} index = {this.props.index}/>
+							<div class = { style.header }>
+									<Title text = "Swell"/>
+									{/* for tool tip: https://react-bootstrap.github.io/components/overlays/#tooltips */}
+							</div>
+							{/* {console.log(this.props.swell)} */}
+							<div class="boxes">
+								<SwellBoxes swell = { this.props.swell} index = {this.props.index}/>
+							</div>
+							<div class="graph">
+								<SwellGraph swell = { this.props.swell} index = {this.props.index}/>
+							</div>
             </div>
 		);
 	}
