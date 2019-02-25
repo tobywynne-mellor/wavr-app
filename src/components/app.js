@@ -6,6 +6,7 @@ import $ from 'jquery';
 import { isBoolean } from 'util';
 import Frame from './frame';
 import Loading from './loading';
+import style from './style';
 
 
 
@@ -143,7 +144,7 @@ export default class App extends Component {
 	// Will render loading screen if data is not downloaded
 	render() {
 		return (
-			<div>
+			<div class ={ style.app }>
 				{!this.state.mswLoading && !this.state.admiralLoading ? (
 					<Frame data = { this.state } changeLocation = { this.changeLocation }/>
 				) : (

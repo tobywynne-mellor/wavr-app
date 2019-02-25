@@ -9,8 +9,8 @@ export default class Title extends Component {
 	constructor(props){
 		super(props);
 	}
-    
+
 	render() {
-		return <div><h3>{ this.props.text }</h3></div>;
+		return <div class={style.title}>{this.props.text.toUpperCase()}</div>;
 	}
 }

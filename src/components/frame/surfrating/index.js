@@ -3,6 +3,7 @@ import { h, render, Component } from 'preact';
 import style from './style';
 import { isBoolean } from 'util';
 import Stars from '../stars';
+import { faDivide } from '@fortawesome/free-solid-svg-icons';
 
 export default class SurfRating extends Component {
 
@@ -10,14 +11,12 @@ export default class SurfRating extends Component {
 		super(props);
 	}
 
-	//call this.props.changeTime(hour), hour: 0-23
-
 	render() {
 		return (
-            <div>
-							<Stars stars = {this.props.rating} />
-							<hr/>
-						</div>
+			<div>
+				SURF RATING
+				<Stars stars = {this.props.rating}/>
+			</div>
 		);
 	}
 }

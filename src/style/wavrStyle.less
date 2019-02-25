@@ -15,9 +15,14 @@
 }
 @fontFamily : JohnstonReg;
 @extraLargeFont : 24px; // for compass dir
-@largeFont : 20px; // for titles
 @mediumFont : 14px; // for descriptions/subtitles
 @smallFont : 12px; // for small labels
+
+.titleFont() {
+    font-size : 1.17em;
+    // font-weight: bold;
+}
+
 
 // Padding
 @sectionPadding : 5px;
@@ -29,7 +34,7 @@
     }
 */
 .section() {
-    background-color: @background;
+    // background-color: @background;
     padding: @sectionPadding;
     color: @white;
     font-family: @fontFamily;

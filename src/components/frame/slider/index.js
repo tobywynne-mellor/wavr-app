@@ -22,10 +22,12 @@ export default class Slider extends Component {
 	render() {
 		return (
 			<div class= { style.slider }>
-        <input type="range" min="0" max="21" value={this.props.time} step = "3" id="slider" oninput={this.handleChange}/>
-				<p>Time: {this.props.timeText}</p>
-      	<SurfRating rating = {this.props.rating}/>
-      </div>
+				<div class={style.info}>
+					<div class = {style.timeText}>Time: {this.props.timeText}</div>
+					<SurfRating rating = {this.props.rating} id = "stars"/>
+				</div>
+        		<input type="range" min="0" max="21" value={this.props.time} step = "3" id="slider" oninput={this.handleChange}/>
+   			</div>
 		);
 	}
 

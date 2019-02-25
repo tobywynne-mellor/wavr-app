@@ -1,8 +1,18 @@
 @import '../../../style/wavrStyle.less';
+
+
+.menu {
+    .section;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .dropdown Button {
   text-align: left;
   font-size: @mediumFont;
-  width: 150px;
+  // width: 150px;
+  color: @white;
   background-color: @backdropGrey;
   border: 2px solid black;
 }
@@ -11,11 +21,11 @@
   background-color: @background;
 }
 
-.row {
+.dropdown {
   display: flex;
-  flex-direction: row;
+  justify-content: end;
 }
 
-.dropButton Button {
-  margin: 15px 0px 0px 15px;
-}
+// .dropButton Button {
+//   margin-left: 50vw;
+// }

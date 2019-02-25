@@ -30,14 +30,15 @@ export default class Menu extends Component {
 
 	render() {
 		return (
-            <div class = { style.row }>
+            <div class = { style.menu }>
 							<Title text = {this.props.name}/>
-							<div class = { style.dropButton }>
-							<Button clickFunction = { this.menuOpen.bind(this) } text="Change"/></div>
-							{ this.state.open ? <div class = { style.dropdown }>
+							
+							{ this.state.open ? 
+								<div class={style.dropdown}>
 									<Button clickFunction = { this.changeLocation.bind(this, "newquay") } text = "Newquay"/>
-									<Button clickFunction = { this.changeLocation.bind(this, "thurso") } text = "Thurso"/>
-								</div> : null}
+									<Button clickFunction = { this.changeLocation.bind(this, "thurso") } text = "Thurso"/> </div>:
+								<Button clickFunction = { this.menuOpen.bind(this) } text="Change"/>
+							}
 						</div>
 		);
 	}
