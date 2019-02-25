@@ -3,7 +3,7 @@
 ## To-Do List
 - CSS Grid layout -> day selection (Oscar)
 - Swell graph (lorenzo)
-- Wind compass and gauge (oscar) https://github.com/virtyaluk/react-compass
+- Wind compass and gauge (oscar) http://gionkunz.github.io/chartist-js/plugins.html#filldonut-plugin https://github.com/virtyaluk/react-compass
 - Tide graph (toby)
 - style head/menu component
 - style loading screen https://www.npmjs.com/package/react-wave-progress
