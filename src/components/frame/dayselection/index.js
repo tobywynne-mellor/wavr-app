@@ -26,38 +26,30 @@ export default class DaySelection extends Component {
 	render() {
 		return (
         <div class = {style.daySel}>
-						<ul>
-							<li>
-								<label>
+						<div>
 									<input
 										type="radio"
 										value="0"
 										checked={this.state.day === "0"}
 										onChange={this.handleChange}
 									/>Today
-								</label>
-							</li>
-							<li>
-								<label>
+						</div>
+						<div>
 									<input
 										type="radio"
 										value="1"
 										checked={this.state.day === "1"}
 										onChange={this.handleChange}
 									/>{this.props.daysText[0]}
-								</label>
-							</li>
-							<li>
-								<label>
+						</div>
+						<div>
 									<input
 										type="radio"
 										value="2"
 										checked={this.state.day === "2"}
 										onChange={this.handleChange}
 									/>{this.props.daysText[1]}
-								</label>
-							</li>
-						</ul>
+						</div>
         </div>
 		);
 	}

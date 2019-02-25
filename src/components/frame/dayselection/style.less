@@ -1,10 +1,9 @@
-@import '../../../style/wavrStyle.less';\
+@import '../../../style/wavrStyle.less';
 
 .daySel {
     .section;
     display: grid;
-    grid-template-areas:
-                          ". day0 day1 day2 .";
-    grid-template-columns: 5% 30% 30% 30% 5%;
-    grid-template-rows: auto;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: right;
+    align-content: center;
 }
