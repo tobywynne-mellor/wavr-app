@@ -36,7 +36,12 @@ export default class Tide extends Component {
 			}
 		  };
 
-
+		let styles = {
+			  fill: "#41BDFF",
+			  backgroundColor: "#4E4E4E",
+			  padding: 0,
+			  height: 
+		};
 
 		return (
             <div class = { style.tide }>
@@ -45,4 +50,5 @@ export default class Tide extends Component {
             </div>
 		);
 	}
+
 }
