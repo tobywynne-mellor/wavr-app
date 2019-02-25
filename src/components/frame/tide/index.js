@@ -12,22 +12,13 @@ export default class Tide extends Component {
 	}
 
 	render() {
-
-		let data = this.getData();
-
 		return (
             <div class = { style.tide }>
                 <Title text="Tide"/>
-				<div class={style.svgWrapper}>
-					
-				</div>
             </div>
 		);
 	}
 
-	getData() {
-		return "M200 50 V200 100 H0 100 V0 50 Z";
-	}
 
 
 
