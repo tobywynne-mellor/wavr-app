@@ -1,17 +1,22 @@
 # Wavr - The Surfer's Weather App
 
 ## To-Do List
-- CSS Grid layout(Oscar)
-- Swell graph
-- Wind compass and gauge
-- Tide graph
+- CSS Grid layout -> day selection (Oscar)
+- Swell graph (lorenzo)
+- Wind compass and gauge (oscar) https://github.com/virtyaluk/react-compass
+- Tide graph (toby)
 - style head/menu component
+- style loading screen https://www.npmjs.com/package/react-wave-progress
 - style day selector
 - style time selector
 - style swell component
 - style wind component
 - style tide component
+- favicon/logo
+- test cross browsers
 - Comment everything (Everyone)
+
+- SVG animations https://greensock.com/get-started-js
 
 ## Set-Up Guide
 - [Installation](#installation)

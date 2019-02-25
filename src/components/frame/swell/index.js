@@ -20,7 +20,7 @@ export default class Swell extends Component {
 				<Title text = "Swell"/>
 				{/* for tool tip: https://react-bootstrap.github.io/components/overlays/#tooltips */}
 				<SwellBoxes swell = { this.props.swell} index = {this.props.index}/>
-				{/* <SwellGraph swell = { this.props.swell} index = {this.props.index}/> */}
+				<SwellGraph swell = { this.props.swell} index = {this.props.index}/>
             </div>
 		);
 	}
