@@ -1,9 +1,22 @@
 @import '../../../style/wavrStyle.less';
 .tide {
     .section;
+
 }
 
-.graph {
+.svg {
+    // background-color: @backdropGrey;
+    max-height: 20vh;
+    position: absolute;
     fill : @primaryBlue;
-    background-color: @backdropGrey;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.svgWrapper {
+    height: 100%;
+    width: 100%;
+    position: relative;
 }
