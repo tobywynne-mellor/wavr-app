@@ -16,17 +16,11 @@ export default class Swell extends Component {
 	render() {
 		return (
             <div class = { style.swell }>
-							<div class = { style.header }>
-									<Title text = "Swell"/>
-									{/* for tool tip: https://react-bootstrap.github.io/components/overlays/#tooltips */}
-							</div>
-							{/* {console.log(this.props.swell)} */}
-							<div class = { style.graph }>
-								<SwellGraph swell = { this.props.swell} index = {this.props.index}/>
-							</div>
-							<div class = { style.boxes }>
-								<SwellBoxes swell = { this.props.swell} index = {this.props.index}/>
-							</div>
+
+				<Title text = "Swell"/>
+				{/* for tool tip: https://react-bootstrap.github.io/components/overlays/#tooltips */}
+				<SwellBoxes swell = { this.props.swell} index = {this.props.index}/>
+				{/* <SwellGraph swell = { this.props.swell} index = {this.props.index}/> */}
             </div>
 		);
 	}

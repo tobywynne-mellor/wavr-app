@@ -3,6 +3,7 @@ import { h, render, Component } from 'preact';
 // import stylesheets for ipad & button
 import style from './style';
 import { isBoolean } from 'util';
+import Title from '../title';
 
 export default class Tide extends Component {
 
@@ -13,7 +14,8 @@ export default class Tide extends Component {
 	render() {
 		return (
             <div class = { style.tide }>
-                <p>TIDE</p>
+                <Title text="Tide"/>
+				<div>Tide Graph</div>
             </div>
 		);
 	}

@@ -14,9 +14,7 @@ export default class swellBoxes extends Component {
 		return (
 			<div>
 				<p>Swellboxes</p>
-				<p>Height: {this.props.swell.primary.height[this.props.index]}</p>
-				<p>period: {this.props.swell.primary.period[this.props.index]}</p>
-				<p>direction: {this.props.swell.primary.direction[this.props.index]}</p>
+				<p>Height: {this.props.swell.primary.height[this.props.index]} period: {this.props.swell.primary.period[this.props.index]} direction: {this.props.swell.primary.direction[this.props.index]}</p>
 			</div>
 		);
 	}

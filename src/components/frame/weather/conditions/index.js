@@ -13,7 +13,6 @@ export default class Conditions extends Component {
 	render() {
 		return (
             <div>
-                <p>Conditions</p>
                 <p>temp: { this.props.temperature }</p>
                 <p>chill: { this.props.chill }</p>
                 <p>icon: { this.props.iconNo }</p>
