@@ -1,7 +1,7 @@
 # Wavr - The Surfer's Weather App
 
 ## To-Do List
-- CSS Grid layout -> day selection (Oscar)
+- CSS Grid layout -> day selection (Oscar) https://codepen.io/anon/pen/ZPELLj
 - Swell graph (lorenzo)
 - Wind compass and gauge (oscar) http://gionkunz.github.io/chartist-js/plugins.html#filldonut-plugin https://github.com/virtyaluk/react-compass
 - Tide graph (toby)
@@ -78,4 +78,3 @@ npm start
 ```
 
 > This simply serves up the contents of `./build`. Bear in mind, if you use this, the localhost port your server is running on will refresh, and you'll also need to restart it to see any changes you've made to the code in `src`.
-

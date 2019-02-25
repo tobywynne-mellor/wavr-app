@@ -2,9 +2,19 @@
 
 .daySel {
     .section;
-    display: grid;
-    grid-template-areas:
-                          ". day0 day1 day2 .";
-    grid-template-columns: 5% 30% 30% 30% 5%;
-    grid-template-rows: auto;
+}
+
+.button {
+  height:100%;
+  width:33.3%;
+  border: none;
+  background-color: @backdropGrey;
+  color: @white;
+  text-align: center;
+  font-size: 20px;;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: @background;
 }
