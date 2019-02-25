@@ -57,7 +57,6 @@ export default class App extends Component {
 
 	changeLocation(val) {
 
-		this.setState({mswLoading : true, admiralLoading : true});
 
 		let newquay = {
 			location : {
@@ -74,9 +73,11 @@ export default class App extends Component {
 			}
 		};
 
-		if (val === "newquay" && this.state.location.name !== "Newquay"){
+		if (val === "newquay" && this.state.location.name.toUpperCase() !== "NEWQUAY"){
+			this.setState({mswLoading : true, admiralLoading : true});
 			this.setState(Object.assign(this.state.location, newquay));
-		} else if (val === "thurso" && this.state.location.name !== "Thurso"){
+		} else if (val === "thurso" && this.state.location.name.toUpperCase() !== "THURSO"){
+			this.setState({mswLoading : true, admiralLoading : true});
 			this.setState(Object.assign(this.state.location, thurso));
 		}
 	}
