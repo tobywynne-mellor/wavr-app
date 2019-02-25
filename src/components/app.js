@@ -10,7 +10,6 @@ import Loading from './loading';
 
 
 export default class App extends Component {
-//var Iphone = React.createClass({
 
 	// a constructor with initial set states
 	constructor(props){
@@ -100,7 +99,6 @@ export default class App extends Component {
 			// console.log("fetchWeatherData success");
 			this.parseResponse(data, "weather");
 			this.setState({mswLoading : false});
-			console.log(data);
 
 		})
 		.fail((req, err) => {

@@ -1,5 +1,18 @@
 # Wavr - The Surfer's Weather App
 
+## To-Do List
+- CSS Grid layout(Oscar)
+- Swell graph
+- Wind compass and gauge
+- Tide graph
+- style head/menu component
+- style day selector
+- style time selector
+- style swell component
+- style wind component
+- style tide component
+- Comment everything (Everyone)
+
 ## Set-Up Guide
 - [Installation](#installation)
 - [Development Workflow](#development-workflow)
