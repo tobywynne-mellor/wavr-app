@@ -57,25 +57,27 @@ export default class App extends Component {
 
 	changeLocation(val) {
 
+		this.setState({mswLoading : true, admiralLoading : true});
+
 		let newquay = {
-			name : "Newquay",
-			tide : "0546",
-			weather : "1"
+			location : {
+				name : "Newquay",
+				tide : "0546",
+				weather : "1"
+			}
 		};
 		let thurso =  {
-			name : "Thurso",
-			tide : "0298",
-			weather : "47"
+			location : {
+				name : "Thurso",
+				tide : "0298",
+				weather : "47"
+			}
 		};
 
 		if (val === "newquay" && this.state.location.name !== "Newquay"){
-			console.log("Changing location...");
 			this.setState(Object.assign(this.state.location, newquay));
-			this.componentDidMount();
 		} else if (val === "thurso" && this.state.location.name !== "Thurso"){
-			console.log("Changing location...");
 			this.setState(Object.assign(this.state.location, thurso));
-			this.componentDidMount();
 		}
 	}
 
@@ -98,6 +100,7 @@ export default class App extends Component {
 			// console.log("fetchWeatherData success");
 			this.parseResponse(data, "weather");
 			this.setState({mswLoading : false});
+			console.log(data);
 
 		})
 		.fail((req, err) => {
@@ -156,19 +159,18 @@ export default class App extends Component {
 
 	//called after render
 	componentDidMount() {
-		console.log("Fetching data from API...")
+		console.log("Fetching data from API...");
 		this.fetchTideData(this.state.location.tide);
 		this.fetchWeatherData(this.state.location.weather);
 	}
 
-	////called once state is changed e.g. the location and causes render function to be called again
-	//componentDidUpdate(prevState) {
-	 	//if (prevState.location.name !== this.state.location.name){
-		//	console.log("Fetching new data");
-		//	this.fetchTideData(this.state.location.tide);
-	 	//	this.fetchWeatherData(this.state.location.weather);
-	 	//}
- 	//}
+	//called after location change
+	componentDidUpdate(prevProps, prevState) {
+		if (prevState.location.name !== this.state.location.name) {
+			this.fetchTideData(this.state.location.tide);
+			this.fetchWeatherData(this.state.location.weather);
+		}
+	}
 
 	/*===============================
 		parseResponse
@@ -228,9 +230,15 @@ export default class App extends Component {
 				data.swell.primary.direction.push(point.swell.components.primary.direction);
 				data.swell.primary.height.push(point.swell.components.primary.height);
 				data.swell.primary.period.push(point.swell.components.primary.period);
-				data.swell.secondary.direction.push(point.swell.components.secondary.direction);
-				data.swell.secondary.height.push(point.swell.components.secondary.height);
-				data.swell.secondary.period.push(point.swell.components.secondary.period);
+				if (typeof point.swell.components.secondary === "undefined") {
+					data.swell.secondary.direction.push(null);
+					data.swell.secondary.height.push(null);
+					data.swell.secondary.period.push(null);
+				} else {
+					data.swell.secondary.direction.push(point.swell.components.secondary.direction);
+					data.swell.secondary.height.push(point.swell.components.secondary.height);
+					data.swell.secondary.period.push(point.swell.components.secondary.period);
+				}
 				data.weather.temperature.push(point.condition.temperature);
 				data.weather.chill.push(point.wind.chill);
 				data.weather.iconNo.push(point.condition.weather);
