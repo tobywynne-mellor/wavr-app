@@ -98,7 +98,7 @@ export default class Frame extends Component {
                 <Menu name = { this.props.data.location.name } setLocation = {this.props.changeLocation}/>
 								<Swell locationName = { this.props.data.location.name } swell = { this.props.data.swell } index = {this.state.index}/>
 								<Weather weather = { this.props.data.weather } index = { this.state.index } />
-								<Tide tide = { this.props.data.tide } day = { this.state.day } time = {this.state.time}/>
+								<Tide times = {typeof this.props.data.tide.dateTime !== "undefined" ? this.props.data.tide.dateTime.slice(this.state.day*4,this.state.day*4+4).map(element => {return element.substring(11,16);}) : null} time = { this.state.time }/>
                 <Slider changeTime = { this.changeTime } time = { this.state.time } timeText = {this.getTime()} rating = { this.props.data.solidRating[this.state.index] } timeSt= { this.props.data.timestamp[this.state.index] }/>
 								<DaySelection changeDay = { this.changeDay } day = { this.state.day } daysText = { this.getDays() }/>
             </div>
