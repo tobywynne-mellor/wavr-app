@@ -92,13 +92,31 @@ export default class Frame extends Component {
 		return Math.round(day*12 + (time/3));
 	}
 
+	//functions for tide data
+	tideTimes(){
+		return typeof this.props.data.tide.dateTime !== "undefined" ? this.props.data.tide.dateTime.slice(this.state.day*4,this.state.day*4+4).map(element => {return element.substring(11,16);}) : null;
+	}
+
+	xPoints() {
+		let xPointsArr = [78, 170, 260, 315];
+		
+		if ( this.props.data.tide.dateTime.length !== 0) {
+			let times = this.tideTimes();
+			for (let i = 0; i < xPointsArr.length; i++) {
+				xPointsArr[i] = (parseInt(times[i].split(':')[0],10)/24)*330 + 10;
+			}
+		}
+
+		return xPointsArr;
+	}
+
 	render() {
 		return (
             <div class = { style.grid }>
                 <Menu name = { this.props.data.location.name } setLocation = {this.props.changeLocation}/>
 								<Swell locationName = { this.props.data.location.name } swell = { this.props.data.swell } index = {this.state.index}/>
 								<Weather weather = { this.props.data.weather } index = { this.state.index } />
-								<Tide times = {typeof this.props.data.tide.dateTime !== "undefined" ? this.props.data.tide.dateTime.slice(this.state.day*4,this.state.day*4+4).map(element => {return element.substring(11,16);}) : null} time = { this.state.time }/>
+								<Tide times = { this.tideTimes() } time = { this.state.time } xPoints = { this.xPoints() }/>
                 <Slider changeTime = { this.changeTime } time = { this.state.time } timeText = {this.getTime()} rating = { this.props.data.solidRating[this.state.index] } timeSt= { this.props.data.timestamp[this.state.index] }/>
 								<DaySelection changeDay = { this.changeDay } day = { this.state.day } daysText = { this.getDays() }/>
             </div>
