@@ -18,7 +18,6 @@ export default class Slider extends Component {
 		this.props.changeTime(event.target.value); //IMPORTANT: this sends the time selected to props
 	}
 
-
 	render() {
 		return (
 			<div class= { style.slider }>
@@ -31,13 +30,8 @@ export default class Slider extends Component {
 		);
 	}
 
-	componentDidMount(){
-		// this.setState({timestamp : date.toDateString()});
-	}
-
 	convertTimestamp(str) {
 		let date = new Date(parseInt(str,10)*1000);
 		return date.getHours();
 	}
-
 }
