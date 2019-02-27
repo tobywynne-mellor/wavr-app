@@ -4,7 +4,7 @@ import { h, render, Component } from 'preact';
 import style from './style';
 import { isBoolean } from 'util';
 import SwellBoxes from './swellBoxes';
-import SwellGraph from './swellGraph';
+// import SwellGraph from './swellGraph';
 import Title from '../title';
 
 export default class Swell extends Component {
@@ -20,7 +20,7 @@ export default class Swell extends Component {
 				<Title text = "Swell"/>
 				{/* for tool tip: https://react-bootstrap.github.io/components/overlays/#tooltips */}
 				<SwellBoxes swell = { this.props.swell} index = {this.props.index}/>
-				<SwellGraph swell = { this.props.swell} index = {this.props.index}/>
+				{/* <SwellGraph swell = { this.props.swell} index = {this.props.index}/> */}
             </div>
 		);
 	}
