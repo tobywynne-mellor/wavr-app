@@ -45,6 +45,7 @@ export default class App extends Component {
 				chill : [],
 				iconNo : [],
 				windSpeed : [],
+				compassDirection : [],
 				windDirection : []
 			},
 			tide : {
@@ -203,6 +204,7 @@ export default class App extends Component {
 					"chill" : [],
 					"iconNo" : [],
 					"windSpeed" : [],
+					"compassDirection" : [],
 					"windDirection" : []
 				}
 			};
@@ -227,6 +229,7 @@ export default class App extends Component {
 				data.weather.chill.push(point.wind.chill);
 				data.weather.iconNo.push(point.condition.weather);
 				data.weather.windSpeed.push(point.wind.speed);
+				data.weather.compassDirection.push(point.wind.compassDirection);
 				data.weather.windDirection.push(point.wind.direction);
 			});
 
