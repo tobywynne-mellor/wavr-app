@@ -102,7 +102,7 @@ export default class Frame extends Component {
 		
 		if ( this.props.data.tide.dateTime.length !== 0) {
 			let times = this.tideTimes();
-			for (let i = 0; i < xPointsArr.length; i++) {
+			for (let i = 0; i < times.length; i++) {
 				xPointsArr[i] = (parseInt(times[i].split(':')[0],10)/24)*330 + 10;
 			}
 		}
