@@ -9,7 +9,13 @@ import Title from '../title';
 export default class Tide extends Component {
 
 	constructor(props){
-		super(props);
+    super(props);
+    this.constructPoints.bind(this);
+    this.svgPath.bind(this);
+    this.lineCommand.bind(this);
+    this.line.bind(this);
+    this.controlPoint.bind(this);
+    this.bezierCommand.bind(this);
 	}
 
 	render() {
@@ -18,7 +24,8 @@ export default class Tide extends Component {
                 <Title text="Tide"/>
 				<svg class={style.svg} viewBox="0 0 350 90">
 					<rect class={style.backdrop} filter="url(#inset)" x="10" y="20" width="330" height="50"></rect>
-					{/* <path class={style.wave} d={this.svgPath(this.constructPoints(),this.bezierCommand)}></path> */}
+          <path class={style.wave} d={this.getWave()}></path>
+					{/* {this.props.xPoints.length > 0 ? <path class={style.wave} d={this.svgPath(this.constructPoints(),this.bezierCommand)}></path> :null} */}
 					<text class={style.text} x="10" y="80.302">{"00:00"}</text>
 					<text class={style.text} x={ this.props.xPoints[0]-12 } y="17.302">{ this.props.times[0] }</text>
 					<text class={style.text} x={ this.props.xPoints[1]-12 } y="80.302">{ this.props.times[1] }</text>
@@ -29,11 +36,9 @@ export default class Tide extends Component {
 				</svg>
             </div>
 		);
-	}
-
-
+  }
+  
 	// "M10.003,69.929 C48.007,69.079 54.148,20.228 91.889,20.529 C131.661,20.846 128.99,67.28 182.341,67.825 C222.867,68.239 234.317,20.621 269.594,21.165 C302.052,21.666 313.624,64.315 340.109,70.094"
-
 	getWave() {
 		let y = {
 			top : 21,
