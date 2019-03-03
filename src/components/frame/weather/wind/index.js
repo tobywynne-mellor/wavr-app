@@ -30,12 +30,12 @@ export default class Wind extends Component {
 		if (speed <= 2) {
 			return 360;
 		}
-		else if (speed >= 20) {
+		else if (speed >= 40) {
 			return 0;
 		}
-		
-		return (1 - (speed / 20)) * 360;
-		
+
+		return (1 - (speed / 40)) * 360;
+
 	}
 
 	rotatePointer() {

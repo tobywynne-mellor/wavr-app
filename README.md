@@ -7,16 +7,17 @@
 - Wind compass and gauge (oscar)
     - There's an error occuring but not affecting perfomance
     - redefine grid > move temp on left, weather on right, gauge in middle
-    - get icons and make function to show them 
+    - get icons and make function to show them
         - https://graphicburger.com/icons-set/
 - Tide graph (toby)
     - Still need to group times into days for when there are 3 times per day
-    - add point 6 hours before first point and 6 hours after next point 
+    - add point 6 hours before first point and 6 hours after next point
     - add grey rects to obscure the overlapping wave parts
 - style head/menu component
-    - show rating and time 
+    - show rating and time
     - location text bigger
-- style loading screen 
+- style loading screen
+    - https://codepen.io/oxla/pen/VaWryB wave loader
     - https://www.npmjs.com/package/react-wave-progress
     - small logo in middle with animation
     - gif??
