@@ -14,12 +14,12 @@ export default class Wind extends Component {
 		return (
 			<div>
 				<svg class={style.dial} viewBox='0 0 200 200'>
-					<ellipse ry="80" rx="80" id="backCircle" cy="100" cx="100" stroke-width="3" stroke="#ffffff" fill="#000" />
-					<path class="bg" transform="translate (0,-13)" d="m40.32092,163.95455a79.14646,78.68765 0 1 1 121.21743,0" fill="none" id="grey" stroke="#bfbfbf" stroke-width="11" />
-					<path class="meter" transform="translate (0,-13)" d="m40.32092,163.7304a79.14646,78.68765 0 1 1 121.21743,0" fill="none" id="blue" stroke="#007fff" stroke-dasharray="360" stroke-dashoffset={this.speed2Angle(this.props.speed)} stroke-width="11" />
-					<text class="foreground" fill="#ffffff" font-family="Sans-serif" font-size="32" id="directionText" stroke="#ff0000" stroke-width="0" text-anchor="middle" x="100" y="105">{this.props.compass}</text>
-					<text class="foreground" fill="#ffffff" font-family="Sans-serif" font-size="18" id="speedText" stroke="#ff0000" stroke-width="0" text-anchor="middle" x="100" y="130">{this.props.speed} mph</text>
-					<path transform={this.rotatePointer()} d="M100,180 L110,150 L90,150 z" fill="#ff0000" />
+					<ellipse class={style.backCircle} ry="80" rx="80" cy="100" cx="100" stroke-width="3" stroke="#ffffff" fill="#000" />
+					<path class={style.bg} transform="translate (0,-13)" d="m40.32092,163.95455a79.14646,78.68765 0 1 1 121.21743,0" fill="none" stroke-width="11" />
+					<path class={style.meter} transform="translate (0,-13)" d="m40.32092,163.7304a79.14646,78.68765 0 1 1 121.21743,0" fill="none" id="blue" stroke-dasharray="360" stroke-dashoffset={this.speed2Angle(this.props.speed)} stroke-width="11" />
+					<text class={style.dirText} font-family="Sans-serif" font-size="32" id="directionText" stroke="#ff0000" stroke-width="0" text-anchor="middle" x="100" y="105">{this.props.compass}</text>
+					<text class={style.speedText} font-family="Sans-serif" font-size="18" id="speedText" stroke="#ff0000" stroke-width="0" text-anchor="middle" x="100" y="130">{this.props.speed} mph</text>
+					<path class={style.pointer} transform={this.rotatePointer()} d="M100,180 L110,150 L90,150 z" />
 				</svg>
 			</div>
 		);
