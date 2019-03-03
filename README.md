@@ -1,18 +1,25 @@
 # Wavr - The Surfer's Weather App
 
 ## To-Do List
-- Swell graph (lorenzo)
-    - Make it change with state
-    - draw secondary swell
+- Swell
+    - secondary swell hidden as deafult
+    - on hover of secondary swell box, secondary swell shown
 - Wind compass and gauge (oscar)
     - There's an error occuring but not affecting perfomance
-    - lower the calibraton of speed gauge as values are often off scale
+    - redefine grid > move temp on left, weather on right, gauge in middle
+    - get icons and make function to show them 
+        - https://graphicburger.com/icons-set/
 - Tide graph (toby)
     - Still need to group times into days for when there are 3 times per day
+    - add point 6 hours before first point and 6 hours after next point 
+    - add grey rects to obscure the overlapping wave parts
 - style head/menu component
     - show rating and time 
+    - location text bigger
 - style loading screen 
     - https://www.npmjs.com/package/react-wave-progress
+    - small logo in middle with animation
+    - gif??
 - style day selector
     - add average rating for each day
 - style time selector
@@ -20,8 +27,6 @@
 - style change location button
 - style swell component
     - make it responsive?
-- style wind component
-    - put correct colours in
 - style tide component
     - add another bar to show time window
 - favicon/logo
