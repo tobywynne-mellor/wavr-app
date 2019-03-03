@@ -17,7 +17,8 @@ export default class Stars extends Component {
 		library.add(faStar);
 		return (
 			<div>
-				{Array(this.props.stars).fill(<FontAwesomeIcon icon={faStar} />)}
+				{ Array(this.props.stars).fill(<FontAwesomeIcon icon={faStar} />)}
+				{ !isNaN(5-this.props.stars) ? Array(5-this.props.stars).fill(<FontAwesomeIcon icon={faStar} style={{opacity : 0.5}}/>) : null}
 			</div>
 		);
 	}

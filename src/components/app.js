@@ -45,6 +45,7 @@ export default class App extends Component {
 				chill : [],
 				iconNo : [],
 				windSpeed : [],
+				compassDirection : [],
 				windDirection : []
 			},
 			tide : {
@@ -57,27 +58,12 @@ export default class App extends Component {
 
 	changeLocation(val) {
 
-		this.setState({mswLoading : true, admiralLoading : true});
-
-		let newquay = {
-			location : {
-				name : "Newquay",
-				tide : "0546",
-				weather : "1"
-			}
-		};
-		let thurso =  {
-			location : {
-				name : "Thurso",
-				tide : "0298",
-				weather : "47"
-			}
-		};
-
-		if (val === "newquay" && this.state.location.name !== "Newquay"){
-			this.setState(Object.assign(this.state.location, newquay));
-		} else if (val === "thurso" && this.state.location.name !== "Thurso"){
-			this.setState(Object.assign(this.state.location, thurso));
+		if (val === "newquay" && this.state.location.name.toUpperCase() !== "NEWQUAY"){
+			this.setState({mswLoading : true, admiralLoading : true});
+			this.setState({location : { name : "Newquay", tide : "0546", weather : "1"}});
+		} else if (val === "thurso" && this.state.location.name.toUpperCase() !== "THURSO"){
+			this.setState({mswLoading : true, admiralLoading : true});
+			this.setState({location : { name : "Thurso", tide : "0298", weather : "47"}});
 		}
 	}
 
@@ -218,6 +204,7 @@ export default class App extends Component {
 					"chill" : [],
 					"iconNo" : [],
 					"windSpeed" : [],
+					"compassDirection" : [],
 					"windDirection" : []
 				}
 			};
@@ -242,6 +229,7 @@ export default class App extends Component {
 				data.weather.chill.push(point.wind.chill);
 				data.weather.iconNo.push(point.condition.weather);
 				data.weather.windSpeed.push(point.wind.speed);
+				data.weather.compassDirection.push(point.wind.compassDirection);
 				data.weather.windDirection.push(point.wind.direction);
 			});
 

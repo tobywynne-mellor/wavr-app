@@ -15,13 +15,11 @@ export default class Swell extends Component {
 
 	render() {
 		return (
-            <div class = { style.swell }>
-
+      <div class = { style.swell }>
 				<Title text = "Swell"/>
-				{/* for tool tip: https://react-bootstrap.github.io/components/overlays/#tooltips */}
 				<SwellBoxes swell = { this.props.swell} index = {this.props.index}/>
 				<SwellGraph swell = { this.props.swell} index = {this.props.index}/>
-            </div>
+      </div>
 		);
 	}
 }

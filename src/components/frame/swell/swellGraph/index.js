@@ -3,56 +3,57 @@ import { h, render, Component } from 'preact';
 // import stylesheets for ipad & button
 import style from './style';
 import { isBoolean } from 'util';
-import ChartistGraph from 'react-chartist';
 
 export default class swellGraph extends Component {
+
 	constructor(props) {
 		super(props);
+		this.createWave = this.createWave.bind(this)
+		this.state = {
+			path : ""
+		}
 	}
 
-	// getPoints(height, period, maxHight, minHeight){
-	// 	let points = [];
+	createWave() {
+		let HEIGHT = 2.5 //this.props.swell.primary.height[this.props.index] //between 0 and 5
+		let FREQUENCE = 15 //this.props.swell.primary.period[this.props.index] //between 5 and 25
 
+		let xs = []
+		for(var i=0; i<=500; i++) {
+			xs.push(i)
+		}
+		let points = xs.map( x => {
+			//wave = xHeight + waveHeight * waveFrequence
+			let xHeight = (6-HEIGHT)*30
+			let waveHeight = FREQUENCE+10
+			let waveFrequence = Math.sin(x/((25-FREQUENCE)*3))
+			let y = xHeight + waveHeight * waveFrequence
 
+			return [x, y]
+		})
 
-	// 	for(var i = 0; i < 10; i++){
+		let path = "M" + points.map( p => {
+			return p[0] + "," + p[1]
+		}).join(" L")
 
-	// 	}
-	// }
+	  let pathFinal = path + " L500,250 L0,250 L0," + points[0][1]
+
+		this.setState({
+	    path: pathFinal
+	  });
+	}
 
 	render() {
-		let lineChartData = {
-			labels: [1, 1.5, 2, 2.5],
-			series: [
-			  [5,3,5,3]
-			]
-		  };
-
-		  let lineChartOptions = {
-			low: 0,
-			showArea: true,
-			showLine: false,
-			showPoint: false,
-			axisX: {
-				showLabel: false,
-				showGrid: false
-			},
-			axisY: {
-				showLabel: false,
-				showGrid: false
-			}
-		  };
-
-		  let styles = {
-			  fill: "#41BDFF",
-			  backgroundColor: "#4E4E4E"
-		};
-
-		return <ChartistGraph data={lineChartData} options={lineChartOptions} type={'Line'} style={styles}/>;
-
+		return (
+			<div class={style.cont}>
+				<svg viewBox = "0 0 500 250" class = { style.swellSvg }>
+					<path class={style.swellPath} d={this.state.path}></path>
+				</svg>
+			</div>
+		);
 	}
 
 	componentDidMount() {
-
+		this.createWave()
 	}
 }

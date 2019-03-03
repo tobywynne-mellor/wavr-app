@@ -3,8 +3,11 @@
 ## To-Do List
 - CSS Grid layout -> day selection (Oscar) https://codepen.io/anon/pen/ZPELLj
 - Swell graph (lorenzo)
-- Wind compass and gauge (oscar) http://gionkunz.github.io/chartist-js/plugins.html#filldonut-plugin https://github.com/virtyaluk/react-compass
+- Wind compass and gauge (oscar)
+    - There's an error occuring but not affecting perfomance
 - Tide graph (toby)
+    - Still need to group time times into days for when there are 3 times per day
+
 - style head/menu component
 - style loading screen https://www.npmjs.com/package/react-wave-progress
 - style day selector

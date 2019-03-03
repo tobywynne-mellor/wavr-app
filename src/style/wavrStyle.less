@@ -9,7 +9,12 @@
 @red : #E91D29;
 
 // Shadow
-@innerShadow : inset 0 1 3px rgba(0,0,0,0.5);
+.innerShadow() {
+    box-shadow: inset 0px 1px 3px rgba(0,0,0,0.5);
+    -webkit-filter: drop-shadow( 0px 1px 3px rgba(0,0,0,0.5));
+    filter: drop-shadow( 0px 1px 3px rgba(0,0,0,0.5));
+    border-radius: 1px;
+}
 
 // Text
 @font-face {
