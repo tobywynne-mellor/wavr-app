@@ -8,15 +8,22 @@
     - There's an error occuring but not affecting perfomance
     - lower the calibraton of speed gauge as values are often off scale
 - Tide graph (toby)
-    - Still need to group time times into days for when there are 3 times per day
-
+    - Still need to group times into days for when there are 3 times per day
 - style head/menu component
-- style loading screen https://www.npmjs.com/package/react-wave-progress
+    - show rating and time 
+- style loading screen 
+    - https://www.npmjs.com/package/react-wave-progress
 - style day selector
+    - add average rating for each day
 - style time selector
+    - style the slider
+- style change location button
 - style swell component
+    - make it responsive?
 - style wind component
+    - put correct colours in
 - style tide component
+    - add another bar to show time window
 - favicon/logo
 - test cross browsers
 - Comment everything (Everyone)
