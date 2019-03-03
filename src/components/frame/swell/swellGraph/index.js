@@ -11,9 +11,17 @@ export default class swellGraph extends Component {
 		this.createWave = this.createWave.bind(this);
 	}
 
-	createWave() {
-		let HEIGHT = ((this.props.swell.primary.height[this.props.index]-2)/20) * 5;//between 0 and 5
-		let FREQUENCE = 20 - this.props.swell.primary.period[this.props.index];//between 5 and 25
+	createWave(type) {
+
+		let HEIGHT, FREQUENCE;
+
+		if (type === "primary"){
+			HEIGHT = ((this.props.swell.primary.height[this.props.index]-2)/20) * 5;//between 0 and 5
+			FREQUENCE = 20 - this.props.swell.primary.period[this.props.index];//between 5 and 25
+		} else {
+			HEIGHT = ((this.props.swell.secondary.height[this.props.index]-2)/20) * 5;//between 0 and 5
+			FREQUENCE = 20 - this.props.swell.secondary.period[this.props.index];//between 5 and 25
+		}
 
 		let xs = [];
 		for (let i=0; i<=500; i++) {
@@ -40,7 +48,8 @@ export default class swellGraph extends Component {
 		return (
 			<div class = {style.cont}>
 				<svg viewBox = "0 0 500 250" class = { style.swellSvg }>
-					<path class={style.swellPath} d={this.createWave()}></path>
+					<path class={style.swellPathSecondary} d={this.createWave("secondary")}></path>
+					<path class={style.swellPathPrimary} d={this.createWave("primary")}></path>
 				</svg>
 			</div>
 		);
