@@ -18,13 +18,9 @@ export default class swellGraph extends Component {
 		if (type === "primary"){
 			HEIGHT = ((this.props.swell.primary.height[this.props.index]-2)/20) * 5;//between 0 and 5
 			FREQUENCE = 20 - this.props.swell.primary.period[this.props.index];//between 5 and 25
-			console.log("primary HEIGHT= " + this.props.swell.primary.height[this.props.index]);
-			console.log("primary FREQUENCE= " + this.props.swell.primary.period[this.props.index]);
 		} else if (this.props.swell.secondary.height[this.props.index] != null && this.props.swell.secondary.period[this.props.index] != null) {
 			HEIGHT = ((this.props.swell.secondary.height[this.props.index]-2)/20) * 5;//between 0 and 5
 			FREQUENCE = 20 - this.props.swell.secondary.period[this.props.index];//between 5 and 25
-			console.log("secondary HEIGHT= " + this.props.swell.secondary.height[this.props.index]);
-			console.log("secondary FREQUENCE= " + this.props.swell.secondary.period[this.props.index]);
 		}
 
 		let xs = [];
