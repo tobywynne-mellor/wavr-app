@@ -1,10 +1,12 @@
 # Wavr - The Surfer's Weather App
 
 ## To-Do List
-- CSS Grid layout -> day selection (Oscar) https://codepen.io/anon/pen/ZPELLj
 - Swell graph (lorenzo)
+    - Make it change with state
+    - draw secondary swell
 - Wind compass and gauge (oscar)
     - There's an error occuring but not affecting perfomance
+    - lower the calibraton of speed gauge as values are often off scale
 - Tide graph (toby)
     - Still need to group time times into days for when there are 3 times per day
 
