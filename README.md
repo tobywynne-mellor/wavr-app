@@ -38,7 +38,8 @@
 
 Once done:
 - test cross browsers
-- Comment everything (Everyone)
+- transitions
+- Comment everything, change variable names (Everyone)
 
 ## Set-Up Guide
 - [Installation](#installation)
