@@ -13,7 +13,7 @@ export default class swellGraph extends Component {
 
 	createWave() {
 		let HEIGHT = ((this.props.swell.primary.height[this.props.index]-2)/20) * 5;//between 0 and 5
-		let FREQUENCE = 25 - this.props.swell.primary.period[this.props.index]-5;//between 5 and 25
+		let FREQUENCE = 20 - this.props.swell.primary.period[this.props.index];//between 5 and 25
 
 		let xs = [];
 		for (let i=0; i<=500; i++) {
@@ -38,7 +38,7 @@ export default class swellGraph extends Component {
 
 	render() {
 		return (
-			<div class={style.cont}>
+			<div class = {style.cont}>
 				<svg viewBox = "0 0 500 250" class = { style.swellSvg }>
 					<path class={style.swellPath} d={this.createWave()}></path>
 				</svg>
