@@ -6,6 +6,8 @@
 - Swell graph (lorenzo)
 - Wind compass and gauge (oscar) http://gionkunz.github.io/chartist-js/plugins.html#filldonut-plugin https://github.com/virtyaluk/react-compass
 - Tide graph (toby)
+    - Still need to group time times into days for when there are 3 times per day
+
 - style head/menu component
 - style loading screen https://www.npmjs.com/package/react-wave-progress
 - style day selector
