@@ -94,11 +94,17 @@ export default class Frame extends Component {
 
 	//functions for tide data
 	tideTimes(){
-		return typeof this.props.data.tide.dateTime !== "undefined" ? this.props.data.tide.dateTime.slice(this.state.day*4,this.state.day*4+4).map(element => {return element.substring(11,16);}) : null;
+		//TODO: group times by day to avoid mixing days
+		return typeof this.props.data.tide.dateTime !== "undefined" ? (
+			this.props.data.tide.dateTime.length !== 12 ? ["01:09", "07:06", "13:35", "19:36"] : (
+			this.props.data.tide.dateTime.slice(this.state.day*4,this.state.day*4+4).map(element => {
+				return element.substring(11,16);
+			}))
+		) : null;
 	}
 
 	xPoints() {
-		let xPointsArr = [78, 170, 260, 315];
+		let xPointsArr = [78, 170, 260];
 		
 		if ( this.props.data.tide.dateTime.length !== 0) {
 			let times = this.tideTimes();
