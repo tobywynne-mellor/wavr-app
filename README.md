@@ -1,39 +1,44 @@
 # Wavr - The Surfer's Weather App
 
 ## To-Do List
-- Swell
-    - secondary swell hidden as deafult
-    - on hover of secondary swell box, secondary swell shown
-- Wind compass and gauge (oscar)
-    - There's an error occuring but not affecting perfomance
-    - redefine grid > move temp on left, weather on right, gauge in middle
-    - get icons and make function to show them 
+- Lorenzo
+    1. Swell
+        - secondary swell hidden as deafult
+        - on hover of secondary swell box, secondary swell shown
+        - add tootip to explain swell
+    2. style head/menu component
+        - show rating and time 
+        - location text bigger
+        - make button a pin
+    3. style slider
+        - style the slider
+        - https://www.cssportal.com/style-input-range/
+    4. favicon/logo
+- Oscar
+    1. Wind compass and gauge
+        - There's an error occuring but not affecting perfomance
+        - redefine grid > move temp on left, weather on right, gauge in middle
+        - get icons and make function to show them 
         - https://graphicburger.com/icons-set/
-- Tide graph (toby)
-    - Still need to group times into days for when there are 3 times per day
-    - add point 6 hours before first point and 6 hours after next point 
-    - add grey rects to obscure the overlapping wave parts
-- style head/menu component
-    - show rating and time 
-    - location text bigger
-- style loading screen 
-    - https://www.npmjs.com/package/react-wave-progress
-    - small logo in middle with animation
-    - gif??
-- style day selector
-    - add average rating for each day
-- style time selector
-    - style the slider
-- style change location button
-- style swell component
-    - make it responsive?
-- style tide component
-    - add another bar to show time window
-- favicon/logo
+        - change font to @fontFamily
+    2. style day selector
+        - add average rating for each day
+        - hover style remain 
+- Toby
+    1. Tide
+        - Still need to group times into days for when there are 3 times per day
+        - add point 6 hours before first point and 6 hours after next point 
+        - add grey rects to obscure the overlapping wave parts
+        - make times larger
+        - add another bar to show time window
+    2. Loading screen
+        - https://codepen.io/oxla/details/VaWryB
+        - add wavr as text bold same font
+        - see if loading screen can show on first load
+
+Once done:
 - test cross browsers
 - Comment everything (Everyone)
-
-- SVG animations https://greensock.com/get-started-js
 
 ## Set-Up Guide
 - [Installation](#installation)
