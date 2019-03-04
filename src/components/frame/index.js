@@ -33,11 +33,8 @@ export default class Frame extends Component {
 		this.changeTime = this.changeTime.bind(this);
 		this.changeDay = this.changeDay.bind(this);
 		this.roundDown = this.roundDown.bind(this);
-		// this.tideTimes = this.tideTimes.bind(this);
 		this.tideTimes = this.tideTimes.bind(this);
 		this.points = this.points.bind(this);
-		// this.points = this.points.bind(this);
-		
 	}
 
 	changeTime(val) {
