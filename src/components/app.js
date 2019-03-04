@@ -20,7 +20,6 @@ export default class App extends Component {
 		this.state.mswLoading = true;
 		this.state.admiralLoading = true;
 		this.state.delay = true;
-		this.setState({delay : true});
 
 		this.state = {
 			location : {
@@ -133,7 +132,6 @@ export default class App extends Component {
 	render() {
 		return (
 			<div class ={ style.app }>
-			{console.log(this.state.isDelayed)}
 				{this.state.delay || this.state.mswLoading || this.state.admiralLoading ? (
 					<Loading/>
 				) : (
