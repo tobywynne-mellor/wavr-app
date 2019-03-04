@@ -21,16 +21,11 @@
         - get icons and make function to show them 
         - https://graphicburger.com/icons-set/
         - change font to @fontFamily
+        - add text "strong on shore wind"
     2. style day selector
         - add average rating for each day
         - hover style remain 
 - Toby
-    1. Tide
-        - Still need to group times into days for when there are 3 times per day
-        - add point 6 hours before first point and 6 hours after next point 
-        - add grey rects to obscure the overlapping wave parts
-        - make times larger
-        - add another bar to show time window
     2. Loading screen
         - https://codepen.io/oxla/details/VaWryB
         - add wavr as text bold same font
