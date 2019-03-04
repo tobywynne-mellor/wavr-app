@@ -36,7 +36,11 @@ export default class Tide extends Component {
 						<line class={style.timeBar} x1={(this.props.time / 24 * 350) + 1} y1="18" x2={(this.props.time / 24 * 350) + 1} y2="72"></line>
 						<line class={style.timeBar} x1={(this.props.time / 24 * 350) + 43 } y1="18" x2={(this.props.time / 24 * 350) + 43} y2="72"></line>
 					</svg>
-				) : null}
+				) : (
+					<svg class={style.svg} viewBox="0 0 350 90">
+						<rect class={style.backdrop} x="0" y="20" width="350" height="50"></rect>
+					</svg>
+				)}
 				
 			</div>
 		);
