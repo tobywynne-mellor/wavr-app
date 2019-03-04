@@ -24,7 +24,7 @@ export default class swellGraph extends Component {
 		}
 
 		let xs = [];
-		for (let i=0; i<=500; i++) {
+		for (let i=-500; i<=1000; i++) {
 			xs.push(i);
 		}
 		let points = xs.map( x => {
@@ -41,7 +41,7 @@ export default class swellGraph extends Component {
 			return p[0] + "," + p[1];
 		}).join(" L");
 
-	  return path + " L500,250 L0,250 L0," + points[0][1];
+	  return path + " L1000,500 L-500,500 L-500," + points[0][1];
 	}
 
 	render() {
