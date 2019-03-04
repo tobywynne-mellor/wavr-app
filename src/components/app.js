@@ -19,6 +19,7 @@ export default class App extends Component {
 		this.changeLocation = this.changeLocation.bind(this);
 		this.state.mswLoading = true;
 		this.state.admiralLoading = true;
+		this.state.delay = true;
 
 		this.state = {
 			location : {
@@ -131,11 +132,10 @@ export default class App extends Component {
 	render() {
 		return (
 			<div class ={ style.app }>
-				{!this.state.mswLoading && !this.state.admiralLoading ? (
-					<Frame data = { this.state } changeLocation = { this.changeLocation }/>
-				) : (
+				{this.state.delay || this.state.mswLoading || this.state.admiralLoading ? (
 					<Loading/>
-
+				) : (
+					<Frame data = { this.state } changeLocation = { this.changeLocation }/>
 				)}
 			</div>
 
@@ -147,6 +147,13 @@ export default class App extends Component {
 		console.log("Fetching data from API...");
 		this.fetchTideData(this.state.location.tide);
 		this.fetchWeatherData(this.state.location.weather);
+
+		// setTimeout(
+		// 	() => {
+		// 		this.setState({delay : false});
+		// 	},
+		// 	3000
+		// );
 	}
 
 	//called after location change
