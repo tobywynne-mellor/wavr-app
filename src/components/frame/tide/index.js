@@ -16,37 +16,65 @@ export default class Tide extends Component {
 		this.line = this.line.bind(this);
 		this.controlPoint = this.controlPoint.bind(this);
 		this.bezierCommand = this.bezierCommand.bind(this);
+		this.adjustPosition = this.adjustPosition.bind(this);
 	}
 
 	render() {
 		return (
 			<div class={style.tide}>
 				<Title text="Tide" />
-				<svg class={style.svg} viewBox="0 0 350 90">
-					<rect class={style.backdrop} filter="url(#inset)" x="10" y="20" width="330" height="50"></rect>
-					<path class={style.wave} d={this.svgPath(this.constructPoints(this.props.xPoints),this.bezierCommand)}></path>
-					<text class={style.text} x="10" y="80.302">{"00:00"}</text>
-					<text class={style.text} x={this.props.xPoints[0] - 12} y="17.302">{this.props.times[0]}</text>
-					<text class={style.text} x={this.props.xPoints[1] - 12} y="80.302">{this.props.times[1]}</text>
-					<text class={style.text} x={this.props.xPoints[2] - 10} y="17.302">{this.props.times[2]}</text>
-					{this.props.xPoints.length > 3 ? <text class={style.text} x={this.props.xPoints[3] - 10} y="80.302">{this.props.times[3]}</text> : null}
-					<rect class={style.coverPane} x="10" y="20" width={this.props.time !== "undefined" ? this.props.time / 24 * 330 : 0} height="50"></rect>
-					<line class={style.timeBar} x1={this.props.time !== "undefined" ? (this.props.time / 24 * 330) + 10 : 0} y1="18" x2={this.props.time !== "undefined" ? (this.props.time / 24 * 330) + 10 : 0} y2="72"></line>
-				</svg>
+				{ this.props.points.length !== 0 ? (
+					<svg class={style.svg} viewBox="0 0 350 90">
+						<rect class={style.backdrop} x="0" y="20" width="350" height="50"></rect>
+						<path class={style.wave} d={this.svgPath(this.constructPoints(this.props.points), this.bezierCommand)}></path>
+						<text class={style.text} x={this.props.points[0][0] - 12} y={this.adjustPosition(this.props.points[0][1])}>{this.props.times.time[0]}</text>
+						<text class={style.text} x={this.props.points[1][0] - 12} y={this.adjustPosition(this.props.points[1][1])}>{this.props.times.time[1]}</text>
+						<text class={style.text} x={this.props.points[2][0] - 10} y={this.adjustPosition(this.props.points[2][1])}>{this.props.times.time[2]}</text>
+						{this.props.points.length > 3 ? <text class={style.text} x={this.props.points[3][0] - 10} y={this.adjustPosition(this.props.points[3][1])}>{this.props.times.time[3]}</text> : null}
+						<rect class={style.coverPane} x="0" y="20" width={this.props.time / 24 * 350} height="50"></rect>
+						<rect class={style.coverPane} x={(this.props.time / 24 * 350) + 43 } y="20" width={350 - (this.props.time / 24 * 350)} height="50"></rect>
+						<line class={style.timeBar} x1={(this.props.time / 24 * 350) + 1} y1="18" x2={(this.props.time / 24 * 350) + 1} y2="72"></line>
+						<line class={style.timeBar} x1={(this.props.time / 24 * 350) + 43 } y1="18" x2={(this.props.time / 24 * 350) + 43} y2="72"></line>
+					</svg>
+				) : null}
+				
 			</div>
 		);
 	}
 
-	constructPoints(xs) {
-		let arr = [[10,70]];
+	adjustPosition(y) {
+		if (y < 50) {
+			y = y - 4;
+		} else {
+			y = y + 10;
+		}
+		return y;
+	}
+	
+	constructPoints(points) {
+		
+		let arr = [];
 
-		let y = {
-			top: 21,
-			bottom: 70
-		};
+		for (let i = 0; i < points.length; i++) {
+			arr.push(points[i]);
+		}
 
-		for (let i = 0; i < xs.length; i++) {
-			arr.push([xs[i], (i % 2 === 0 ? y.top : y.bottom)]);
+		if (arr[0][1] < 50) {
+			// add 1 low point before if high
+			arr.unshift([arr[0][0]  - (arr[1][0] - arr[0][0]), 70]);
+		} else {
+			// add 2 point before if low
+			arr.unshift([arr[0][0] - arr[0][0] - arr[1][0] , 21]);
+			arr.unshift([arr[0][0] - arr[0][0] - arr[1][0] , 70]);
+		}
+		
+		if (arr[arr.length-1][1] > 50) {
+			// add 2 points after if end on low
+			arr.push([arr[arr.length-1][0] + arr[arr.length-1][0] - arr[arr.length-2][0], 21]);
+			arr.push([arr[arr.length-1][0] + arr[arr.length-1][0] - arr[arr.length-2][0], 70]);
+		} else {
+			// add 1 low point after if end on high
+			arr.push([arr[arr.length-1][0] + arr[arr.length-1][0] - arr[arr.length-2][0], 70]);
 		}
 		return arr;
 	}

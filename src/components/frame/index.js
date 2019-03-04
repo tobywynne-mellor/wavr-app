@@ -13,7 +13,7 @@ import DaySelection from './dayselection';
 
 export default class Frame extends Component {
 
-	constructor(props){
+	constructor(props) {
 		super(props);
 
 		const today = new Date();
@@ -22,9 +22,9 @@ export default class Frame extends Component {
 		//time : 0, 3, 6, 9, 12, 15, 18, 21
 
 		this.state = {
-			time : this.roundDown(today.getHours(), 3),
-			day : 0,
-			index : Math.round(this.calcIndex(this.roundDown(today.getHours(), 3), 0))
+			time: this.roundDown(today.getHours(), 3),
+			day: 0,
+			index: Math.round(this.calcIndex(this.roundDown(today.getHours(), 3), 0))
 		};
 
 		this.calcIndex = this.calcIndex.bind(this);
@@ -33,26 +33,31 @@ export default class Frame extends Component {
 		this.changeTime = this.changeTime.bind(this);
 		this.changeDay = this.changeDay.bind(this);
 		this.roundDown = this.roundDown.bind(this);
+		// this.tideTimes = this.tideTimes.bind(this);
+		this.tideTimes = this.tideTimes.bind(this);
+		this.points = this.points.bind(this);
+		// this.points = this.points.bind(this);
+		
 	}
 
 	changeTime(val) {
-		this.setState({time : val, index : this.calcIndex(val, this.state.day)});
+		this.setState({ time: val, index: this.calcIndex(val, this.state.day) });
 	}
 
 	changeDay(val) {
-		this.setState({day : val, index : this.calcIndex(this.state.time,val)});
+		this.setState({ day: val, index: this.calcIndex(this.state.time, val) });
 	}
 
 	//Returns textual version of time
 	getTime() {
-		let next = parseInt(this.state.time,10) + 3;
+		let next = parseInt(this.state.time, 10) + 3;
 		return this.state.time + ":00 - " + next + ":00";
 	}
 
 
 	getDays() {
 		let today = new Date().getDay();
-		return [this.getDay(today+1), this.getDay(today+2)];
+		return [this.getDay(today + 1), this.getDay(today + 2)];
 	}
 
 	//returns textual version of day
@@ -83,49 +88,60 @@ export default class Frame extends Component {
 	}
 
 	//rounds a number down to the nearest multiple
-	roundDown (n, m) {
+	roundDown(n, m) {
 		return n >= 0 ? (n / m) * m : ((n - m + 1) / m) * m;
 	}
 
 	//returns the index where data can before for current day and time
 	calcIndex(time, day) {
-		return Math.round(day*12 + (time/3));
+		return Math.round(day * 12 + (time / 3));
 	}
 
 	//functions for tide data
-	tideTimes(){
-		//TODO: group times by day to avoid mixing days
-		return typeof this.props.data.tide.dateTime !== "undefined" ? (
-			this.props.data.tide.dateTime.length !== 12 ? ["01:09", "07:06", "13:35", "19:36"] : (
-			this.props.data.tide.dateTime.slice(this.state.day*4,this.state.day*4+4).map(element => {
-				return element.substring(11,16);
-			}))
-		) : null;
+
+	tideTimes() {
+		if (typeof this.props.data.tide.dateTime !== "undefined") {
+			let day = [{ time: [], type: [] }, { time: [], type: [] }, { time: [], type: [] }];
+			let dayindex = 0;
+
+			for (let i = 0; i < this.props.data.tide.dateTime.length; i++) {
+				if (i === 0) {
+					day[dayindex].time.push(this.props.data.tide.dateTime[i].substring(11, 16));
+					day[dayindex].type.push(this.props.data.tide.eventType[i]);
+				} else if (this.props.data.tide.dateTime[i].substring(11, 13) > this.props.data.tide.dateTime[i - 1].substring(11, 13)) {
+					day[dayindex].time.push(this.props.data.tide.dateTime[i].substring(11, 16));
+					day[dayindex].type.push(this.props.data.tide.eventType[i]);
+				} else {
+					dayindex++;
+					day[dayindex].time.push(this.props.data.tide.dateTime[i].substring(11, 16));
+					day[dayindex].type.push(this.props.data.tide.eventType[i]);
+				}
+			}
+			return day[this.state.day];
+		}
 	}
 
-	xPoints() {
-		let xPointsArr = [78, 170, 260];
-		
-		if ( this.props.data.tide.dateTime.length !== 0) {
+	points() {
+		let pointsArr = [];
+		if (typeof this.props.data.tide.dateTime !== "undefined") {
 			let times = this.tideTimes();
-			for (let i = 0; i < times.length; i++) {
-				xPointsArr[i] = (parseInt(times[i].split(':')[0],10)/24)*330 + 10;
+			for (let i = 0; i < times.time.length; i++) {
+				pointsArr.push([(parseInt(times.time[i].split(':')[0], 10) / 24) * 350, times.type[i] === "LowWater" ? 70 : 21]);
 			}
+			return pointsArr;
 		}
-
-		return xPointsArr;
 	}
 
 	render() {
 		return (
-            <div class = { style.grid }>
-                <Menu name = { this.props.data.location.name } setLocation = {this.props.changeLocation}/>
-								<Swell locationName = { this.props.data.location.name } swell = { this.props.data.swell } index = {this.state.index}/>
-								<Weather weather = { this.props.data.weather } index = { this.state.index } />
-								<Tide times = { this.tideTimes() } time = { this.state.time } xPoints = { this.xPoints() }/>
-                <Slider changeTime = { this.changeTime } time = { this.state.time } timeText = {this.getTime()} rating = { this.props.data.solidRating[this.state.index] } timeSt= { this.props.data.timestamp[this.state.index] }/>
-								<DaySelection changeDay = { this.changeDay } day = { this.state.day } daysText = { this.getDays() }/>
-            </div>
+			<div class={style.grid}>
+				<Menu name={this.props.data.location.name} setLocation={this.props.changeLocation} />
+				<Swell locationName={this.props.data.location.name} swell={this.props.data.swell} index={this.state.index} />
+				<Weather weather={this.props.data.weather} index={this.state.index} />
+				<Tide times={this.tideTimes()} time={this.state.time} points={this.points()} />
+				<Slider changeTime={this.changeTime} time={this.state.time} timeText={this.getTime()} rating={this.props.data.solidRating[this.state.index]} timeSt={this.props.data.timestamp[this.state.index]} />
+				<DaySelection changeDay={this.changeDay} day={this.state.day} daysText={this.getDays()} />
+			</div>
 		);
 	}
 }
