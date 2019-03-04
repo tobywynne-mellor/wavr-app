@@ -132,7 +132,7 @@ export default class App extends Component {
 	render() {
 		return (
 			<div class ={ style.app }>
-				{this.state.delay || this.state.mswLoading || this.state.admiralLoading ? (
+				{this.state.delay === undefined || this.state.delay || this.state.mswLoading || this.state.admiralLoading ? (
 					<Loading/>
 				) : (
 					<Frame data = { this.state } changeLocation = { this.changeLocation }/>
@@ -148,12 +148,12 @@ export default class App extends Component {
 		this.fetchTideData(this.state.location.tide);
 		this.fetchWeatherData(this.state.location.weather);
 
-		// setTimeout(
-		// 	() => {
-		// 		this.setState({delay : false});
-		// 	},
-		// 	3000
-		// );
+		setTimeout(
+			() => {
+				this.setState({delay : false});
+			},
+			1500
+		);
 	}
 
 	//called after location change
@@ -161,6 +161,13 @@ export default class App extends Component {
 		if (prevState.location.name !== this.state.location.name) {
 			this.fetchTideData(this.state.location.tide);
 			this.fetchWeatherData(this.state.location.weather);
+			this.setState({delay : true});
+			setTimeout(
+				() => {
+					this.setState({delay : false});
+				},
+				1500
+			);
 		}
 	}
 

@@ -2,8 +2,6 @@
 import { h, render, Component } from 'preact';
 // import style sheet
 import style from './style';
-import { isBoolean } from 'util';
-import Loader from './loader';
 
 export default class Loading extends Component {
 

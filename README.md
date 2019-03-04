@@ -28,7 +28,6 @@
 - Toby
     2. Loading screen
         - https://codepen.io/oxla/details/VaWryB
-        - add wavr as text bold same font
         - see if loading screen can show on first load
 
 Once done:

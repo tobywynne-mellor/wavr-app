@@ -30,7 +30,7 @@ export default class Tide extends Component {
 						<text class={style.text} x={this.props.points[0][0] - 12} y={this.adjustPosition(this.props.points[0][1])}>{this.props.times.time[0]}</text>
 						<text class={style.text} x={this.props.points[1][0] - 12} y={this.adjustPosition(this.props.points[1][1])}>{this.props.times.time[1]}</text>
 						<text class={style.text} x={this.props.points[2][0] - 10} y={this.adjustPosition(this.props.points[2][1])}>{this.props.times.time[2]}</text>
-						{this.props.points.length > 3 ? <text class={style.text} x={this.props.points[3][0] - 10} y={this.adjustPosition(this.props.points[3][1])}>{this.props.times.time[3]}</text> : null}
+						{this.props.points.length > 3 ? <text class={style.text} x={this.props.points[3][0] - 20} y={this.adjustPosition(this.props.points[3][1])}>{this.props.times.time[3]}</text> : null}
 						<rect class={style.coverPane} x="0" y="20" width={this.props.time / 24 * 350} height="50"></rect>
 						<rect class={style.coverPane} x={(this.props.time / 24 * 350) + 43 } y="20" width={350 - (this.props.time / 24 * 350)} height="50"></rect>
 						<line class={style.timeBar} x1={(this.props.time / 24 * 350) + 1} y1="18" x2={(this.props.time / 24 * 350) + 1} y2="72"></line>
