@@ -10,7 +10,6 @@ export default class Slider extends Component {
 
 	constructor(props){
 		super(props);
-		this.state.currentTime = new Date().getHours();
 		this.handleChange = this.handleChange.bind(this);
 	}
 
@@ -28,10 +27,5 @@ export default class Slider extends Component {
         		<input type="range" min="0" max="21" value={this.props.time} step = "3" id="slider" oninput={this.handleChange}/>
    			</div>
 		);
-	}
-
-	convertTimestamp(str) {
-		let date = new Date(parseInt(str,10)*1000);
-		return date.getHours();
 	}
 }

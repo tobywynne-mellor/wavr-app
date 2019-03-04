@@ -86,7 +86,8 @@ export default class Frame extends Component {
 
 	//rounds a number down to the nearest multiple
 	roundDown(n, m) {
-		return n >= 0 ? (n / m) * m : ((n - m + 1) / m) * m;
+		return Math.floor(n / m) * m;
+		// return n >= 0 ? (n / m) * m : ((n - m + 1) / m) * m;
 	}
 
 	//returns the index where data can before for current day and time
@@ -95,7 +96,6 @@ export default class Frame extends Component {
 	}
 
 	//functions for tide data
-
 	tideTimes() {
 		if (typeof this.props.data.tide.dateTime !== "undefined") {
 			let day = [{ time: [], type: [] }, { time: [], type: [] }, { time: [], type: [] }];
