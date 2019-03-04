@@ -25,10 +25,7 @@
     2. style day selector
         - add average rating for each day
         - hover style remain 
-- Toby
-    2. Loading screen
-        - https://codepen.io/oxla/details/VaWryB
-        - see if loading screen can show on first load
+
 
 Once done:
 - test cross browsers
