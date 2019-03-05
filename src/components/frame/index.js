@@ -140,13 +140,13 @@ export default class Frame extends Component {
 			}
 			avgRatings[i] = cumuRating / 12;
 		}
-		return avgRatings[1];
+		return avgRatings[];
 	}
 
 	render() {
 		return (
 			<div class={style.grid}>
-				<Menu avgRatings={this.avgRatings} name={this.props.data.location.name} setLocation={this.props.changeLocation} />
+				<Menu name={this.props.data.location.name} setLocation={this.props.changeLocation} />
 				<Swell locationName={this.props.data.location.name} swell={this.props.data.swell} index={this.state.index} />
 				<Weather weather={this.props.data.weather} index={this.state.index} />
 				<Tide times={this.tideTimes()} time={this.state.time} points={this.points()} />
