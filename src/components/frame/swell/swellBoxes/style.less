@@ -1,34 +1,33 @@
 @import '../../../../style/wavrStyle.less';
 
-.box1{
-  font-size: 14px;
-  position: absolute;
+.box1, .box2 {
+  font-size: @mediumFont;
   font-weight: bold;
-  margin: 0px 0px 7px 15px;
-  padding-left: 2%;
-  width: 25%;
+  padding: 10px;
+  margin: 4px;
   white-space: nowrap;
-  height: 34%;
-  background-color: @primaryBlue;
+  width: 100%;
   transition: opacity 0.2s;
-  z-index: 1000;
+  align-self: stretch;
+}
+
+.box1{
+  background-color: @primaryBlue;
 }
 
 .box2{
-  font-size: 14px;
-  position: absolute;
-  font-weight: bold;
-  margin-top: 10.5vh;
-  margin-left: 15px;
-  padding-left: 2%;
-  width: 25%;
-  white-space: nowrap;
-  height: 34%;
   background-color: @secondaryBlue;
-  transition: opacity 0.2s;
-  z-index: 1000;
 }
 
-.box1:hover, .box2:hover{
+.box2:hover{
   opacity: 0.9;
+}
+
+.cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-content:center;
+  align-items: center;
+  padding: 5%;
 }

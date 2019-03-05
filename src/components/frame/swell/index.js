@@ -11,14 +11,20 @@ export default class Swell extends Component {
 
 	constructor(props){
 		super(props);
+		this.onHover = this.onHover.bind(this);
+		this.state = { hoverCheck : false };
 	}
+
+   onHover(isHover) {
+       this.setState({ hoverCheck : isHover });
+   }
 
 	render() {
 		return (
       <div class = { style.swell }>
 				<Title text = "Swell"/>
-				<SwellBoxes swell = { this.props.swell} index = {this.props.index}/>
-				<SwellGraph swell = { this.props.swell} index = {this.props.index}/>
+				<SwellBoxes swell = { this.props.swell} index = {this.props.index} onHover={this.onHover}/>
+				<SwellGraph swell = { this.props.swell} index = {this.props.index} secondaryShowing={this.state.hoverCheck}/>
       </div>
 		);
 	}

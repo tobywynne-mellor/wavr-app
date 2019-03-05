@@ -47,17 +47,10 @@ export default class swellGraph extends Component {
 	render() {
 		return (
 			<div class = {style.cont}>
-					{this.props.swell.primary.height[this.props.index] > this.props.swell.secondary.height[this.props.index] ? (
 						<svg viewBox = "0 0 500 250" class = { style.swellSvg }>
 							<path class={style.swellPathPrimary} d={this.createWave("primary")}></path>
-							<path class={style.swellPathSecondary} d={this.createWave("secondary")}></path>
+							{ this.props.secondaryShowing ? <path class={style.swellPathSecondary} d={this.createWave("secondary")}></path> : null}
 						</svg>
-					) : (
-						<svg viewBox = "0 0 500 250" class = { style.swellSvg }>
-							<path class={style.swellPathSecondary} d={this.createWave("secondary")}></path>
-							<path class={style.swellPathPrimary} d={this.createWave("primary")}></path>
-						</svg>
-					)}
 			</div>
 		);
 	}

@@ -42,6 +42,7 @@ export default class DaySelection extends Component {
 				<button class={style.button} id={style.day1} type="button" value="1" onClick={this.handleChange}>{this.props.daysText[0]}<br /><Stars stars={this.props.avgRatings[1]} /></button>
 				<button class={style.button} id={style.day2} type="button" value="2" onClick={this.handleChange}>{this.props.daysText[1]} <br /><Stars stars={this.props.avgRatings[2]} /></button>
 			</div>
+
 		);
 	}
 }
