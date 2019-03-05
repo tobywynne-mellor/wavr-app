@@ -93,7 +93,7 @@ export default class Frame extends Component {
 
 	//returns the index where data can before for current day and time
 	calcIndex(time, day) {
-		return Math.round(day * 12 + (time / 3));
+		return Math.round(day * 8 + (time / 3));
 	}
 
 	//functions for tide data
@@ -131,13 +131,13 @@ export default class Frame extends Component {
 	}
 
 	avgRating() {
-		var avg = [0,0,0];
-		for (var i = 0; i < 3; i++){
-			for (var j = 0; j < 12; j++){
-				var ind = j + (i*12);
+		let avg = [0,0,0];
+		for (let i = 0; i < 3; i++){
+			for (let j = 0; j < 8; j++){
+				let ind = j + (i*8);
 				avg[i] += this.props.data.solidRating[ind];
 			}
-			avg[i]= avg[i]/12;
+			avg[i]= avg[i]/8;
 			avg[i] = Math.round(avg[i]);
 		}
 		return avg;

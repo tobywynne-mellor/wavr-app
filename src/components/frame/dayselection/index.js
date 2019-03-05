@@ -8,23 +8,23 @@ import { faDivide } from '@fortawesome/free-solid-svg-icons';
 
 export default class DaySelection extends Component {
 
-	constructor(props){
+	constructor(props) {
 		super(props);
 		this.handleChange = this.handleChange.bind(this);
 		this.state = {
-	      day: '0',
+			day: '0'
 		};
 	}
 
 	//event handler for radio button selection
 	handleChange(event) {
 		if (typeof event !== "undefined") {
-	  	this.setState({
-	    	day: event.target.value
-	  	});
+			this.setState({
+				day: event.target.value
+			});
 			this.props.changeDay(event.target.value);
 			// cycle through sibling elements of the target, changing bg-color
-			for(var i=0;i<3;i++){
+			for (let i = 0; i < 3; i++) {
 				event.target.parentNode.childNodes[i].style.backgroundColor = "#4E4E4E";
 			}
 			event.target.style.backgroundColor = "#323232";
@@ -34,11 +34,11 @@ export default class DaySelection extends Component {
 
 	render() {
 		return (
-				<div class = {style.daySel}>
-					<button class={style.button} id={style.day0} type="button" value="0" onClick={this.handleChange}>Today<br /><Stars stars = {this.props.avgRatings[0]}/></button>
-	        <button class={style.button} id={style.day1} type="button" value="1" onClick={this.handleChange}>{this.props.daysText[0]}<br /><Stars stars = {this.props.avgRatings[1]}/></button>
-	        <button class={style.button} id={style.day2} type="button" value="2" onClick={this.handleChange}>{this.props.daysText[1]} <br /><Stars stars = {this.props.avgRatings[2]}/></button>
-				</div>
+			<div class={style.daySel}>
+				<button class={style.button} id={style.day0} type="button" value="0" onClick={this.handleChange}>Today<br /><Stars stars={this.props.avgRatings[0]} /></button>
+				<button class={style.button} id={style.day1} type="button" value="1" onClick={this.handleChange}>{this.props.daysText[0]}<br /><Stars stars={this.props.avgRatings[1]} /></button>
+				<button class={style.button} id={style.day2} type="button" value="2" onClick={this.handleChange}>{this.props.daysText[1]} <br /><Stars stars={this.props.avgRatings[2]} /></button>
+			</div>
 		);
 	}
 }
