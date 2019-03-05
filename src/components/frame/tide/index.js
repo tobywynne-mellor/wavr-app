@@ -79,6 +79,8 @@ export default class Tide extends Component {
 		} else {
 			// add 1 low point after if end on high
 			arr.push([arr[arr.length-1][0] + arr[arr.length-1][0] - arr[arr.length-2][0], 70]);
+			arr.push([arr[arr.length-1][0] + arr[arr.length-1][0] - arr[arr.length-2][0], 21]);
+			arr.push([arr[arr.length-1][0] + arr[arr.length-1][0] - arr[arr.length-2][0], 70]);
 		}
 		return arr;
 	}
