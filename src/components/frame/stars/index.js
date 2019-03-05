@@ -16,7 +16,7 @@ export default class Stars extends Component {
 	render() {
 		library.add(faStar);
 		return (
-			<div>
+			<div class = {style.stars}>
 				{ Array(this.props.stars).fill(<FontAwesomeIcon icon={faStar} />)}
 				{ !isNaN(5-this.props.stars) ? Array(5-this.props.stars).fill(<FontAwesomeIcon icon={faStar} style={{opacity : 0.5}}/>) : null}
 			</div>

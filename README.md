@@ -16,16 +16,10 @@
     4. favicon/logo
 - Oscar
     1. Wind compass and gauge
-        - There's an error occuring but not affecting perfomance
         - redefine grid > move temp on left, weather on right, gauge in middle
         - get icons and make function to show them 
         - https://graphicburger.com/icons-set/
-        - change font to @fontFamily
         - add text "strong on shore wind"
-    2. style day selector
-        - add average rating for each day
-        - hover style remain 
-
 
 Once done:
 - test cross browsers
