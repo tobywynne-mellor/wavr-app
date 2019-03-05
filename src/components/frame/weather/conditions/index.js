@@ -13,7 +13,10 @@ export default class Wind extends Component {
 	render() {
 		return (
 			<div class={style.grid}>
-			<img src='./../../../assets/weatherIcons/thermometer.png' class={style.smallImage}></img><p>{ this.props.temperature } °C</p>
+			<div class={style.subGrid}>
+				<img src='./../../../assets/weatherIcons/thermometer.png' class={style.smallImage}></img><p>{ this.props.temperature } °C</p>
+				<img src='./../../../assets/weatherIcons/chill.png' class={style.smallImage}></img> <p>{ this.props.chill } °C</p>
+			</div>
 				<svg class={style.dial} viewBox='0 0 200 200'>
 					<ellipse class={style.backCircle} ry="80" rx="80" cy="100" cx="100" stroke-width="3" stroke="#ffffff" fill="#000" />
 					<path class={style.bg} transform="translate (0,-13)" d="m40.32092,163.95455a79.14646,78.68765 0 1 1 121.21743,0" fill="none" stroke-width="11" />
@@ -22,8 +25,9 @@ export default class Wind extends Component {
 					<text class={style.speedText} font-family="Sans-serif" font-size="18" id="speedText" stroke="#ff0000" stroke-width="0" text-anchor="middle" x="100" y="130">{this.props.speed} mph</text>
 					<path class={style.pointer} transform={this.rotatePointer()} d="M100,180 L110,150 L90,150 z" />
 				</svg>
-				<img src={this.iconString()} class={style.image}> </img>
-				<img src='./../../../assets/weatherIcons/chill.png' class={style.smallImage}></img> <p>{ this.props.chill } °C</p>
+				<div>
+					<img src={this.iconString()} class={style.image}> </img>
+				</div>
 			</div>
 		);
 	}
