@@ -19,6 +19,7 @@ Once done:
 - test cross browsers
 - transitions
 - Comment everything, change variable names (Everyone)
+- include contribution explaination as per the email
 
 ## Set-Up Guide
 - [Installation](#installation)
