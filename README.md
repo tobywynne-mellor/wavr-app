@@ -6,14 +6,10 @@
         - secondary swell hidden as deafult
         - on hover of secondary swell box, secondary swell shown
         - add tootip to explain swell
-    2. style head/menu component
-        - show rating and time 
-        - location text bigger
-        - make button a pin
-    3. style slider
+    2. style slider
         - style the slider
         - https://www.cssportal.com/style-input-range/
-    4. favicon/logo
+    3. favicon/logo
 - Oscar
     1. Wind compass and gauge
         - There's an error occuring but not affecting perfomance
