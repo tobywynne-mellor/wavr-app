@@ -54,7 +54,7 @@ export default class Frame extends Component {
 
 	getDays() {
 		let today = new Date().getDay();
-		return [this.getDay(today + 1), this.getDay(today + 2)];
+		return [this.getDay(today),this.getDay(today + 1), this.getDay(today + 2)];
 	}
 
 	//returns textual version of day
@@ -132,7 +132,7 @@ export default class Frame extends Component {
 	render() {
 		return (
 			<div class={style.grid}>
-				<Menu name={this.props.data.location.name} setLocation={this.props.changeLocation} />
+				<Menu name={this.props.data.location.name} setLocation={this.props.changeLocation} day = {this.getDays()[this.state.day]} time = {this.getTime()} rating = {this.props.data.solidRating[this.state.index]}/>
 				<Swell locationName={this.props.data.location.name} swell={this.props.data.swell} index={this.state.index} />
 				<Weather weather={this.props.data.weather} index={this.state.index} />
 				<Tide times={this.tideTimes()} time={this.state.time} points={this.points()} />
