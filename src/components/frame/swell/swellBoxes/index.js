@@ -9,6 +9,16 @@ export default class swellBoxes extends Component {
 	constructor(props) {
 		super(props);
 		this.printSecondaryMessage = this.printSecondaryMessage.bind(this);
+		this.isHovering = this.isHovering.bind(this);
+		this.isNotHovering = this.isNotHovering.bind(this);
+	}
+
+	isHovering(){
+		this.props.onHover(true);
+	}
+
+	isNotHovering(){
+		this.props.onHover(false);
 	}
 
 	printSecondaryMessage(){
@@ -27,7 +37,7 @@ export default class swellBoxes extends Component {
 				<div class = { style.box1 }>
 					<div>PRIMARY<br/>{this.props.swell.primary.height[this.props.index]}ft every {this.props.swell.primary.period[this.props.index]}s</div>
 				</div>
-				<div class = { style.box2 }>
+				<div class = { style.box2 } onMouseOver={ this.isHovering } onMouseOut={ this.isNotHovering }>
 					{ this.printSecondaryMessage() }
 				</div>
 
