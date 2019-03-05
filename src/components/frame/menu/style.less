@@ -8,22 +8,82 @@
     align-items: center;
 }
 
+.infoLayout {
+  margin: 0;
+  display: grid;
+  // grid-template-columns: auto 70px auto;
+  grid-template-columns: auto auto;
+
+  grid-template-rows: 15px 15px;
+  grid-gap: 0px 5px;
+}
+
+.stars {
+  grid-row: 1 ;
+  grid-column: 2;
+  align-self: center;
+}
+
+.locName {
+  grid-row: 1;
+  grid-column: 1;
+  display: block;
+  font-size: 1.5em;
+  font-weight: bold;
+  align-self: center;
+}
+
+.day, .time {
+  grid-column: 1;
+  display: block;
+  font-weight: normal;
+  text-align: center;
+  font-size: @smallFont;
+  display: inline-block;
+  margin-right: 5px;
+}
+.day {
+  grid-row: 1;
+}
+
+.time {
+  grid-row: 2;
+}
+
 .dropdown Button {
   text-align: left;
   font-size: @mediumFont;
   // width: 150px;
   color: @white;
   background-color: @backdropGrey;
-  border: 2px solid black;
+  // border: 2px solid black;
+  border-radius: 1px;
+  margin-right: 5px;
+  transition: all 0.1s ease;
 }
 
 .dropdown Button:hover {
   background-color: @background;
+  // transform: scale(1.01);
 }
 
 .dropdown {
   display: flex;
   justify-content: end;
+}
+
+.icon {
+  fill: @white;
+  transition: all 0.1s ease;
+}
+
+.icon:hover {
+  fill: @offwhite;
+}
+
+.button {
+  background-color: transparent;
+  border: none;
 }
 
 // .dropButton Button {
