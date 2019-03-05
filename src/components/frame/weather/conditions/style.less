@@ -2,17 +2,25 @@
 .grid{
     .section;
     display: grid;
-    grid-template-columns: 20% 60% 20%;
-    grid-template-rows: auto;
+    grid-template-columns: 10% 10% 60% 20%;
+    grid-template-rows: 50% 50%;
 }
 
 .dial{
   position: relative;
-  height: 120%;
+  height: 100%;
   margin: auto;
+  grid-column: 1 / 2;
 }
 
 .image{
+  position: relative;
+  margin: auto;
+  width: 40%;
+  margin:auto;
+}
+
+.smallImage{
   width: 30%;
   margin:auto;
 }
