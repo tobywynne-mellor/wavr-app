@@ -130,18 +130,17 @@ export default class Frame extends Component {
 		}
 	}
 
-	avgRating(day) {
-		var avg = [];
- 		var cumuRating;//cumulative value of ratings
-		for (var i = 0; i<3; i++){
-				cumuRating = 0;
-				for (var j = 0; i < 12; i++){
-						var t = (i*12)+j;
-						cumuRating += this.props.data.solidRating[t];
-				}
-				avg[i] = cumuRating / 12;
+	avgRating() {
+		var avg = [0,0,0];
+		for (var i = 0; i < 3; i++){
+			for (var j = 0; j < 12; j++){
+				var ind = j + (i*12);
+				avg[i] += this.props.data.solidRating[ind];
+			}
+			avg[i]= avg[i]/12;
+			avg[i] = Math.round(avg[i]);
 		}
-		return avg[day];
+		return avg;
 	}
 
 	render() {
@@ -152,7 +151,7 @@ export default class Frame extends Component {
 				<Weather weather={this.props.data.weather} index={this.state.index} />
 				<Tide times={this.tideTimes()} time={this.state.time} points={this.points()} />
 				<Slider changeTime={this.changeTime} time={this.state.time} timeText={this.getTime()} rating={this.props.data.solidRating[this.state.index]} timeSt={this.props.data.timestamp[this.state.index]} />
-				<DaySelection avgRating={this.avgRating} changeDay={this.changeDay} day={this.state.day} daysText={this.getDays()} />
+				<DaySelection avgRatings={this.avgRating()} changeDay={this.changeDay} day={this.state.day} daysText={this.getDays()} />
 			</div>
 		);
 	}
