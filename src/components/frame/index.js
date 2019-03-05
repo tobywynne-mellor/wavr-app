@@ -131,13 +131,11 @@ export default class Frame extends Component {
 	}
 
 	avgRating() {
-		console.log('average rating has been called:');
 		var avg = [0,0,0];
 		for (var i = 0; i < 3; i++){
 			for (var j = 0; j < 12; j++){
 				var ind = j + (i*12);
 				avg[i] += this.props.data.solidRating[ind];
-				console.log(avg);
 			}
 			avg[i]= avg[i]/12;
 			avg[i] = Math.round(avg[i]);

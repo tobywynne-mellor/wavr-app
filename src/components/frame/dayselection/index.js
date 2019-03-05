@@ -18,17 +18,19 @@ export default class DaySelection extends Component {
 
 	//event handler for radio button selection
 	handleChange(event) {
-	  this.setState({
-	    day: event.target.value
-	  });
-		this.props.changeDay(event.target.value);
-
-		// cycle through sibling elements of the target, changing bg-color
-		for(var i=0;i<3;i++){
-			event.target.parentNode.childNodes[i].style.backgroundColor = "#4E4E4E";
+		if (typeof event !== "undefined") {
+	  	this.setState({
+	    	day: event.target.value
+	  	});
+			this.props.changeDay(event.target.value);
+			// cycle through sibling elements of the target, changing bg-color
+			for(var i=0;i<3;i++){
+				event.target.parentNode.childNodes[i].style.backgroundColor = "#4E4E4E";
+			}
+			event.target.style.backgroundColor = "#323232";
 		}
-		event.target.style.backgroundColor = "#323232";
 	}
+
 
 	render() {
 		return (
