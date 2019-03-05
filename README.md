@@ -3,8 +3,6 @@
 ## To-Do List
 - Lorenzo
     1. Swell
-        - secondary swell hidden as deafult
-        - on hover of secondary swell box, secondary swell shown
         - add tootip to explain swell
     2. style slider
         - style the slider
