@@ -18,7 +18,7 @@ export default class DaySelection extends Component {
 
 	//event handler for radio button selection
 	handleChange(event) {
-		if (typeof event !== "undefined") {
+		if (event.target.value == 0 || event.target.value == 1 || event.target.value == 2) {
 			this.setState({
 				day: event.target.value
 			});
@@ -28,6 +28,9 @@ export default class DaySelection extends Component {
 				event.target.parentNode.childNodes[i].style.backgroundColor = "#4E4E4E";
 			}
 			event.target.style.backgroundColor = "#323232";
+		}
+		else{
+			return;
 		}
 	}
 
