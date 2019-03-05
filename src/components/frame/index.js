@@ -35,7 +35,7 @@ export default class Frame extends Component {
 		this.roundDown = this.roundDown.bind(this);
 		this.tideTimes = this.tideTimes.bind(this);
 		this.points = this.points.bind(this);
-		this.avgRatings = this.avgRatings.bind(this);
+		this.avgRating = this.avgRating.bind(this);
 	}
 
 	changeTime(val) {
@@ -130,17 +130,18 @@ export default class Frame extends Component {
 		}
 	}
 
-	avgRatings() {
-		let avgRatings = [];
-
+	avgRating(day) {
+		var avg = [];
+ 		var cumuRating;//cumulative value of ratings
 		for (var i = 0; i<3; i++){
-			let cumuRatings = 0; //cumulative value of ratings
-			for (var j = 0; i < 12; i++){
-				cumuRating += this.props.data.solidRating[(i*12)+j];
-			}
-			avgRatings[i] = cumuRating / 12;
+				cumuRating = 0;
+				for (var j = 0; i < 12; i++){
+						var t = (i*12)+j;
+						cumuRating += this.props.data.solidRating[t];
+				}
+				avg[i] = cumuRating / 12;
 		}
-		return avgRatings[];
+		return avg[day];
 	}
 
 	render() {
@@ -151,7 +152,7 @@ export default class Frame extends Component {
 				<Weather weather={this.props.data.weather} index={this.state.index} />
 				<Tide times={this.tideTimes()} time={this.state.time} points={this.points()} />
 				<Slider changeTime={this.changeTime} time={this.state.time} timeText={this.getTime()} rating={this.props.data.solidRating[this.state.index]} timeSt={this.props.data.timestamp[this.state.index]} />
-				<DaySelection changeDay={this.changeDay} day={this.state.day} daysText={this.getDays()} />
+				<DaySelection avgRating={this.avgRating} changeDay={this.changeDay} day={this.state.day} daysText={this.getDays()} />
 			</div>
 		);
 	}

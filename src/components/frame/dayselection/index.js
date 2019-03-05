@@ -10,7 +10,7 @@ export default class DaySelection extends Component {
 		super(props);
 		this.handleChange = this.handleChange.bind(this);
 		this.state = {
-	      day: '0'
+	      day: '0',
 		};
 	}
 
