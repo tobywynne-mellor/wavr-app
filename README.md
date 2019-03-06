@@ -4,10 +4,7 @@
 - Lorenzo
     1. Swell
         - add tootip to explain swell
-    2. style slider
-        - style the slider
-        - https://www.cssportal.com/style-input-range/
-    3. favicon/logo
+    2. favicon/logo
 
 ## points to bring up at meeting (from Oscar)
 	- loader reverse colours so in 'dark mode' like rest of app?
