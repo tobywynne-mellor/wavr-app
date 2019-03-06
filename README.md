@@ -4,7 +4,6 @@
 - Lorenzo
     1. Swell
         - add tootip to explain swell
-    2. favicon/logo
 
 ## points to bring up at meeting (from Oscar)
 - sort the merge out from oscarUpdates and master
@@ -25,6 +24,7 @@
         - wind text
             - col 1 / span 3, row 3
 
+## points to bring up at meeting (from Lorenzo)
 
 Once done:
 - test cross browsers
