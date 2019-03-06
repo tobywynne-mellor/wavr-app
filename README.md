@@ -10,12 +10,6 @@
         - style the slider
         - https://www.cssportal.com/style-input-range/
     3. favicon/logo
-- Oscar
-    1. Wind compass and gauge
-        - redefine grid > move temp on left, weather on right, gauge in middle
-        - get icons and make function to show them 
-        - https://graphicburger.com/icons-set/
-        - add text "strong on shore wind"
 
 Once done:
 - test cross browsers
