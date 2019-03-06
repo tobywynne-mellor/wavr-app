@@ -2,20 +2,50 @@
 .grid{
     .section;
     display: grid;
-    grid-template-columns: 30% 36% 30%;
-    grid-template-rows: auto;
+    grid-template-columns: 30% 40% 30%;
+    grid-template-rows: 100%;
+}
+
+.subGridA{
+    .section;
+    text-align: left !important;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+}
+
+.subGridB{
+    .section;
+    text-align: center !important;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 80% 20%;
 }
 
 .dial{
   position: relative;
-  max-height: 150px;
-  margin: auto;
+  top: -10px;
+  height: 100%;
+  justify-self: center;
 }
 
 .image{
-  width: 100%;
-  margin:auto;
-  max-width: 60px;
+  left:25%;
+  top:25%;
+  position: relative;
+  width: 30%;
+  justify-self: center;
+}
+
+.smallImage{
+  top: 15%;
+  position: relative;
+  width: 30%;
+  justify-self: center;
+}
+
+p{
+
 }
 
 .meter {
