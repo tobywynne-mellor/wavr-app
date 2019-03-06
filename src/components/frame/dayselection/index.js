@@ -29,7 +29,7 @@ export default class DaySelection extends Component {
 			}
 			event.target.style.backgroundColor = "#323232";
 		}
-		else{
+		else {
 			return;
 		}
 	}
@@ -38,9 +38,9 @@ export default class DaySelection extends Component {
 	render() {
 		return (
 			<div class={style.daySel}>
-				<button class={style.button} id={style.day0} type="button" value="0" onClick={this.handleChange}>Today<br /><Stars stars={this.props.avgRatings[0]} /></button>
-				<button class={style.button} id={style.day1} type="button" value="1" onClick={this.handleChange}>{this.props.daysText[0]}<br /><Stars stars={this.props.avgRatings[1]} /></button>
-				<button class={style.button} id={style.day2} type="button" value="2" onClick={this.handleChange}>{this.props.daysText[1]} <br /><Stars stars={this.props.avgRatings[2]} /></button>
+				<button class={style.button} id={style.day0} type="button" value="0" onClick={this.handleChange}>TODAY<br /><Stars stars={this.props.avgRatings[0]} /></button>
+				<button class={style.button} id={style.day1} type="button" value="1" onClick={this.handleChange}>{this.props.daysText[1].substring(0,3).toUpperCase()}<br /><Stars stars={this.props.avgRatings[1]} /></button>
+				<button class={style.button} id={style.day2} type="button" value="2" onClick={this.handleChange}>{this.props.daysText[2].substring(0,3).toUpperCase()} <br /><Stars stars={this.props.avgRatings[2]} /></button>
 			</div>
 
 		);

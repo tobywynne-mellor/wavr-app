@@ -18,7 +18,7 @@ export default class swellGraph extends Component {
 		if (type === "primary"){
 			HEIGHT = ((this.props.swell.primary.height[this.props.index]-2)/20) * 5;//between 0 and 5
 			FREQUENCE = 20 - this.props.swell.primary.period[this.props.index];//between 5 and 25
-		} else if (this.props.swell.secondary.height[this.props.index] != null && this.props.swell.secondary.period[this.props.index] != null) {
+		} else if (this.props.swell.secondary.height[this.props.index] !== null && this.props.swell.secondary.period[this.props.index] !== null) {
 			HEIGHT = ((this.props.swell.secondary.height[this.props.index]-2)/20) * 5;//between 0 and 5
 			FREQUENCE = 20 - this.props.swell.secondary.period[this.props.index];//between 5 and 25
 		}
@@ -49,7 +49,7 @@ export default class swellGraph extends Component {
 			<div class = {style.cont}>
 						<svg viewBox = "0 0 500 250" class = { style.swellSvg }>
 							<path class={style.swellPathPrimary} d={this.createWave("primary")}></path>
-							{ this.props.secondaryShowing ? <path class={style.swellPathSecondary} d={this.createWave("secondary")}></path> : null}
+							{ this.props.secondaryShowing && this.props.swell.secondary.height[this.props.index] !== null ? <path class={style.swellPathSecondary} d={this.createWave("secondary")}></path> : null}
 						</svg>
 			</div>
 		);

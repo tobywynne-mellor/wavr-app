@@ -22,6 +22,10 @@
     grid-template-rows: 80% 20%;
 }
 
+.tempText {
+  align-self: center;
+}
+
 .dial{
   position: relative;
   top: -10px;
@@ -38,17 +42,14 @@
 }
 
 .smallImage{
-  top: 15%;
-  position: relative;
-  width: 30%;
+  width: 2em;
   justify-self: center;
-}
-
-p{
+  align-self: center;
 }
 
 .meter {
   stroke: @primaryBlue;
+  .transition;
 }
 
 .bg {
@@ -71,4 +72,5 @@ p{
 
 .pointer {
   fill: @red;
+  .transition;
 }

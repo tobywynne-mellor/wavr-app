@@ -3,18 +3,34 @@
 ## To-Do List
 - Lorenzo
     1. Swell
-        - secondary swell hidden as deafult
-        - on hover of secondary swell box, secondary swell shown
         - add tootip to explain swell
-    2. style slider
-        - style the slider
-        - https://www.cssportal.com/style-input-range/
-    3. favicon/logo
+
+## points to bring up at meeting (from Oscar)
+- sort the merge out from oscarUpdates and master
+	- transitions
+	- wind text
+
+## points to bring up at meeting (from Toby)
+- show loading text when tide is loading
+- redefine grid for weather so it looks good on safari
+    - 3x3 grid
+        - wrap both temps and icons in divs, display flex column 
+            - 1st col 1 row 1
+            - 2nd col 1 row 2
+        - compass, display flex column
+            - col 2, row 1 / span 2
+        - weather icon, display flex
+            - col 3 row 1 / span 2
+        - wind text
+            - col 1 / span 3, row 3
+
+## points to bring up at meeting (from Lorenzo)
 
 Once done:
 - test cross browsers
 - transitions
 - Comment everything, change variable names (Everyone)
+- include contribution explaination as per the email
 
 ## Set-Up Guide
 - [Installation](#installation)

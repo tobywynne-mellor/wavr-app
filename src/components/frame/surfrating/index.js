@@ -13,7 +13,7 @@ export default class SurfRating extends Component {
 
 	render() {
 		return (
-			<div>
+			<div class={style.cont}>
 				SURF RATING
 				<Stars stars = {this.props.rating}/>
 			</div>

@@ -12,6 +12,7 @@
   text-decoration: none;
   -webkit-appearance: none;
   -moz-appearance: none;
+  transition: all 0.2s;
 }
 
 .button:hover {
@@ -20,6 +21,10 @@
 
 .button:focus {
   outline: none;
+}
+
+.button > * {
+  pointer-events: none;
 }
 
 #day0{
