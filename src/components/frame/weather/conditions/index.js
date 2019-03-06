@@ -14,8 +14,8 @@ export default class Wind extends Component {
 		return (
 			<div class={style.grid}>
 			<div class={style.subGridA}>
-				<img src='./../../../assets/weatherIcons/thermometer.png' class={style.smallImage}></img><p>{ this.props.temperature } °C</p>
-				<img src='./../../../assets/weatherIcons/chill.png' class={style.smallImage}></img> <p>{ this.props.chill } °C</p>
+				<img src='./../../../assets/weatherIcons/thermometer.png' class={style.smallImage}></img><div class={style.tempText}>{ this.props.temperature } °C</div>
+				<img src='./../../../assets/weatherIcons/chill.png' class={style.smallImage}></img> <div class={style.tempText}>{ this.props.chill } °C</div>
 			</div>
 			 <div class={style.subGridB}>
 				<svg class={style.dial} viewBox='0 0 200 200'>
@@ -37,24 +37,24 @@ export default class Wind extends Component {
 
 	windText(){
 		//direction text
-		var direction;
+		let direction;
 		//thurso and newquay off-shore wind is south-east
-		if(this.props.direction >= 180 && this.props.direction <=360){
+		if (this.props.direction >= 180 && this.props.direction <=360){
 			direction = 'off-shore';
 		}
-		else{
+		else {
 			direction = 'on-shore';
 		}
 
 		//strength text
-		var strength;
-		if(this.props.speed < 4){
+		let strength;
+		if (this.props.speed < 4){
 			strength = 'weak';
 		}
-		else if(this.props.speed >= 4 && this.props.speed <= 20){
+		else if (this.props.speed >= 4 && this.props.speed <= 20){
 			strength = 'medium';
 		}
-		else{
+		else {
 			strength = 'strong';
 		}
 
@@ -63,7 +63,7 @@ export default class Wind extends Component {
 	}
 
 	iconString(){
-		var reference = this.props.newIconNo;
+		let reference = this.props.newIconNo;
 		return "./../../../assets/weatherIcons/" + reference + ".png";
 	}
 

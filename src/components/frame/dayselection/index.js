@@ -29,7 +29,7 @@ export default class DaySelection extends Component {
 			}
 			event.target.style.backgroundColor = "#323232";
 		}
-		else{
+		else {
 			return;
 		}
 	}
