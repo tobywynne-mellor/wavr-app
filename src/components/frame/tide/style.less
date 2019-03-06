@@ -10,24 +10,28 @@
     height: 20vh;
     max-width: 100%;
     justify-self: center;
+    transition: 1s;
 }
 
 .hider {
     fill: @background;
+    transition: 1s;
 }
 
 .backdrop {
     fill: @backdropGrey;
     .innerShadow;
+    transition: 1s;
 }
 
 .wave {
     fill : @primaryBlue;
+    transition: 1s;
 }
 
 .text {
-    white-space: pre; 
-    fill: @white; 
+    white-space: pre;
+    fill: @white;
     font-size: @smallFont;
     font-family: @fontFamily;
 }
@@ -35,10 +39,12 @@
 .coverPane {
     fill: @backdropGrey;
     opacity: 0.5;
+    transition: 1s;
 }
 
 .timeBar {
-    stroke: @white; 
-    stroke-linecap: round; 
+    stroke: @white;
+    stroke-linecap: round;
     stroke-width: 2px;
+    transition: all 1s;
 }
