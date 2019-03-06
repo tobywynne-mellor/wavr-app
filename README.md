@@ -3,8 +3,6 @@
 ## To-Do List
 - Lorenzo
     1. Swell
-        - secondary swell hidden as deafult
-        - on hover of secondary swell box, secondary swell shown
         - add tootip to explain swell
     2. style slider
         - style the slider
@@ -15,6 +13,7 @@ Once done:
 - test cross browsers
 - transitions
 - Comment everything, change variable names (Everyone)
+- include contribution explaination as per the email
 
 ## Set-Up Guide
 - [Installation](#installation)
