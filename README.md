@@ -9,6 +9,10 @@
         - https://www.cssportal.com/style-input-range/
     3. favicon/logo
 
+## points to bring up at meeting (from Oscar)
+	- loader reverse colours so in 'dark mode' like rest of app?
+	- when u load the app late at night (1230am) it still loads for the previous day
+
 Once done:
 - test cross browsers
 - transitions
