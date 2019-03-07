@@ -75,7 +75,7 @@ export default class Wind extends Component {
 	}
 
 	speed2Angle(speed) {
-		//returns a value draws the wind speed guage based on the wind speed
+		//returns a value which is used to draw the wind speed guage, based on the wind speed
 		let angle;
 		if (speed <= 2) {
 			return 360;
