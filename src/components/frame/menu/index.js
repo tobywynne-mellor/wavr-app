@@ -4,7 +4,6 @@ import { h, render, Component } from 'preact';
 import style from './style';
 import { isBoolean } from 'util';
 import Title from '../title';
-import Button from '../button';
 import Stars from '../stars';
 
 export default class Menu extends Component {
@@ -44,8 +43,8 @@ export default class Menu extends Component {
 				</div>
 				{this.state.open ?
 					<div class={style.dropdown}>
-						<Button clickFunction={this.changeLocation.bind(this, "newquay")} text="NEWQUAY" />
-						<Button clickFunction={this.changeLocation.bind(this, "thurso")} text="THURSO" />
+						<button onClick={this.changeLocation.bind(this, "newquay")}>NEWQUAY</button>
+						<button onClick={this.changeLocation.bind(this, "thurso")}>THURSO</button>
 					</div>
 					: (<button class={style.button} onClick={this.menuOpen.bind(this)}>
 							<svg width="24" height="24" viewBox="0 0 24 24" >

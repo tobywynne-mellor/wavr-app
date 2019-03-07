@@ -39,6 +39,7 @@ export default class Tide extends Component {
 				) : (
 					<svg class={style.svg} viewBox="0 0 350 90">
 						<rect class={style.backdrop} x="0" y="20" width="350" height="50"></rect>
+						<text class={style.loadingText} x="150" y="35">Loading...</text>
 					</svg>
 				)}
 				
