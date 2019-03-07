@@ -1,0 +1,35 @@
+ECS522U/ECS744P - GRAPHICAL USER INTERFACES - COURSEWORK
+
+GROUP 68:
+- Oscar Davis
+- Lorenzo Sani
+- Toby Wynne-Mellor
+
+CONTRIBUTIONS:
+
+OSCAR DAVIS:
+- Day-selection buttons
+- CSS Grid design and development
+- Surf Rating implementation
+- Weather section
+- Compass SVG design
+- Iconography
+
+LORENZO SANI:
+- Time slider implementation and design
+- Select location menu
+- Swell Diagram in SVG
+- Swell information boxes
+- Favicon Design
+- Contributions report
+
+TOBY WYNNE-MELLOR:
+- API connection set up
+- App.js and Frame Component development
+- CSS styling
+- Tide diagram in SVG
+- Loading screen creation
+- Location title section
+- Readme file 
+
+
