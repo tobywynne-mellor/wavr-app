@@ -21,11 +21,10 @@ export default class Weather extends Component {
 		);
 	}
 
-	// processes the icon number from the api so that it can be translated into weather icons
-	// in the conditions component
+	// processes the number given by the api to choose which weather icon is displayed
+	// and outputs a reference for our set of weather icons for use in the conditions component
 	iconNumberProcessed(){
-	//processes the number given by the api to choose which weather icon is displayed
-	//and outputs a reference for our set of weather icons
+
 		let input = this.props.weather.iconNo[this.props.index];
 		if (input == 1){
 			return 1;//sun
