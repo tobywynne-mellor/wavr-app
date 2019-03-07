@@ -1,5 +1,3 @@
-/* eslint-disable no-mixed-spaces-and-tabs */
-// import preact
 import { h, render, Component } from 'preact';
 import style from './style.less';
 import { isBoolean } from 'util';
@@ -13,8 +11,9 @@ export default class Slider extends Component {
 		this.handleChange = this.handleChange.bind(this);
 	}
 
+	//This sends the selected time to the rest of the app
 	handleChange(event) {
-		this.props.changeTime(event.target.value); //IMPORTANT: this sends the time selected to props
+		this.props.changeTime(event.target.value);
 	}
 
 	render() {
