@@ -130,6 +130,7 @@ export default class Frame extends Component {
 		}
 	}
 
+	//returns an average rating for each of the 3 forecasted days
 	avgRating() {
 		let avg = [0,0,0];
 		for (let i = 0; i < 3; i++){
