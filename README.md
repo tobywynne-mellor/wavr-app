@@ -14,7 +14,7 @@
 - show loading text when tide is loading
 - redefine grid for weather so it looks good on safari
     - 3x3 grid
-        - wrap both temps and icons in divs, display flex column 
+        - wrap both temps and icons in divs, display flex column
             - 1st col 1 row 1
             - 2nd col 1 row 2
         - compass, display flex column
@@ -25,6 +25,7 @@
             - col 1 / span 3, row 3
 
 ## points to bring up at meeting (from Lorenzo)
+- I'd remove the rating at the top near the location: it doesn't specify what it is, it might be not clear.
 
 Once done:
 - test cross browsers
