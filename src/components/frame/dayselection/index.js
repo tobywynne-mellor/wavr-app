@@ -16,17 +16,19 @@ export default class DaySelection extends Component {
 		};
 	}
 
-	//event handler for radio button selection
+	//event handler for button selection
 	handleChange(event) {
+		//if a button is clicked, change the selected day to the value of that button
 		if (event.target.value == 0 || event.target.value == 1 || event.target.value == 2) {
 			this.setState({
 				day: event.target.value
 			});
 			this.props.changeDay(event.target.value);
-			// cycle through sibling elements of the target, changing bg-color
+			// cycle through all of the buttons, changing color
 			for (let i = 0; i < 3; i++) {
 				event.target.parentNode.childNodes[i].style.backgroundColor = "#4E4E4E";
 			}
+			//change the color of the target button to the background color
 			event.target.style.backgroundColor = "#323232";
 		}
 		else {
@@ -37,6 +39,7 @@ export default class DaySelection extends Component {
 
 	render() {
 		return (
+			//rednder 3 buttons for day selection
 			<div class={style.daySel}>
 				<button class={style.button} id={style.day0} type="button" value="0" onClick={this.handleChange}>TODAY<br /><Stars stars={this.props.avgRatings[0]} /></button>
 				<button class={style.button} id={style.day1} type="button" value="1" onClick={this.handleChange}>{this.props.daysText[1].substring(0,3).toUpperCase()}<br /><Stars stars={this.props.avgRatings[1]} /></button>

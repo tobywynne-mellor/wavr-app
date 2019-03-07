@@ -10,16 +10,6 @@ export default class Weather extends Component {
 
 	constructor(props){
 		super(props);
-
-        //e.g.
-        // this.props.weather = {
-        // 		"temperature" : [],
-		//      "chill" : [],
-		//      "iconNo" : [],
-		//      "windSpeed" : [],
-		//      "windDirection" : []
-        // 	}
-
 	}
 
 	render() {
@@ -32,6 +22,8 @@ export default class Weather extends Component {
 	}
 
 	iconNumberProcessed(){
+	//processes the number given by the api to choose which weather icon is displayed
+	//and outputs a reference for our set of weather icons
 		let input = this.props.weather.iconNo[this.props.index];
 		if (input == 1){
 			return 1;//sun
@@ -57,8 +49,7 @@ export default class Weather extends Component {
 		else if (input == 10){
 			return 8;//moon
 		}
-		
-		return 9;//unkown/error (possibly fog)
-		
+		return 9;//fog / adverse conditions
+
 	}
 }

@@ -36,6 +36,8 @@ export default class Wind extends Component {
 	}
 
 	windText(){
+		//wind description text
+
 		//direction text
 		let direction;
 		//thurso and newquay off-shore wind is south-east
@@ -67,11 +69,13 @@ export default class Wind extends Component {
 	}
 
 	iconString(){
+		//returns a string that gives the path of the icon file that is selected
 		let reference = this.props.newIconNo;
 		return "./../../../assets/weatherIcons/" + reference + ".png";
 	}
 
 	speed2Angle(speed) {
+		//returns a value draws the wind speed guage based on the wind speed
 		let angle;
 		if (speed <= 2) {
 			return 360;
@@ -85,6 +89,7 @@ export default class Wind extends Component {
 	}
 
 	rotatePointer() {
+		//rotates the pointer of the compass to show the direction of the wind
 		let direction = this.props.direction;
 		return 'rotate(' + direction + ',100,100)';
 	}
