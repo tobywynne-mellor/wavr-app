@@ -11,6 +11,7 @@ export default class swellGraph extends Component {
 		this.createWave = this.createWave.bind(this);
 	}
 
+	// creates the svg path for the graphical representation of the swell
 	createWave(type) {
 
 		let HEIGHT, FREQUENCE;
@@ -44,6 +45,9 @@ export default class swellGraph extends Component {
 	  return path + " L1000,500 L-500,500 L-500," + points[0][1];
 	}
 
+	// if the secondary swell box is hovered then the state of swell will be changed
+	// the state is then passed to this component and if it is hovered the secondary
+	// swell will show, otherwise it will be hidden.
 	render() {
 		return (
 			<div class = {style.cont}>

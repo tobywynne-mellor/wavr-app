@@ -31,6 +31,8 @@ export default class Weather extends Component {
 		);
 	}
 
+	// processes the icon number from the api so that it can be translated into weather icons
+	// in the conditions component
 	iconNumberProcessed(){
 		let input = this.props.weather.iconNo[this.props.index];
 		if (input == 1){

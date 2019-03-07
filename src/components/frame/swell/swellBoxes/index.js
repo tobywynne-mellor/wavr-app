@@ -13,6 +13,9 @@ export default class swellBoxes extends Component {
 		this.isNotHovering = this.isNotHovering.bind(this);
 	}
 
+	// if the secondary swell box is hovered this will trigger a change of
+	// state in the parent component.
+	// This is so the secondary swell graphical representation can be displayed
 	isHovering(){
 		this.props.onHover(true);
 	}
@@ -21,6 +24,7 @@ export default class swellBoxes extends Component {
 		this.props.onHover(false);
 	}
 
+	// returns the secondary swell information in a textual form
 	printSecondaryMessage(){
 		let text = "";
 		if (this.props.swell.secondary.height[this.props.index] !== null) {

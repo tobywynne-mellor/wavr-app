@@ -15,14 +15,18 @@ export default class Menu extends Component {
 		this.state.open = false;
 	}
 
+	// sets the menu state to open
 	menuOpen() {
 		this.setState({ open: true });
 	}
 
+	// sets the menu state to closed
 	menuClose() {
 		this.setState({ open: false });
 	}
 
+	// sets the locations using the functions passed by the parent component
+	// and then closes the menu
 	changeLocation(value) {
 		this.props.setLocation(value);
 		this.menuClose();

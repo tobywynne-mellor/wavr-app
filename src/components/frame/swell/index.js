@@ -15,6 +15,7 @@ export default class Swell extends Component {
 		this.state = { hoverCheck : false };
 	}
 
+	// changes the state of the hoverCheck state attribute 
 	onHover(isHover) {
 		this.setState({ hoverCheck : isHover });
 	}

@@ -1,15 +1,6 @@
 # Wavr - The Surfer's Weather App
+Please follow the installation steps and the development workflow to run the app.
 
-## To-Do List
-- Lorenzo
-    - contribution.txt
-
-## points to bring up at meeting (from Lorenzo)
-- I'd remove the rating at the top near the location: it doesn't specify what it is, it might be not clear.
-
-Once done:
-- test cross browsers
-- Comment everything, change variable names (Everyone)
 
 ## Set-Up Guide
 - [Installation](#installation)
@@ -24,23 +15,7 @@ npm -v
 
 ## Installation
 
-**1. Clone this repository :**
-
-```sh
-git clone --depth 1 https://github.com/Juan-Alvarado/weatherapp-boilerplate.git weather-app
-cd weather-app
-```
-
-**2. Make it your own :**
-
-```sh
-rm -rf .git && git init && npm init
-```
-
-> :information_source: Command above re-initializes the repo and sets up your NPM project.
-
-
-**3. Install the dependencies :**
+**1. Install the dependencies :**
 
 ```sh
 npm install
