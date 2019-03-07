@@ -13,11 +13,14 @@ export default class Wind extends Component {
 	render() {
 		return (
 			<div class={style.grid}>
-			<div class={style.subGridA}>
-				<img src='./../../../assets/weatherIcons/thermometer.png' class={style.smallImage}></img><div class={style.tempText}>{ this.props.temperature } °C</div>
-				<img src='./../../../assets/weatherIcons/chill.png' class={style.smallImage}></img> <div class={style.tempText}>{ this.props.chill } °C</div>
-			</div>
-			 <div class={style.subGridB}>
+				<div class={style.tempBox}>
+					<img src='./../../../assets/weatherIcons/thermometer.png' class={style.smallImage}></img>
+					<div class={style.tempText}>{ this.props.temperature } °C</div>
+				</div>
+				<div class={style.chillBox}>
+					<img src='./../../../assets/weatherIcons/chill.png' class={style.smallImage}></img>
+					<div class={style.tempText}>{ this.props.chill } °C</div>
+				</div>
 				<svg class={style.dial} viewBox='0 0 200 200'>
 					<ellipse class={style.backCircle} ry="80" rx="80" cy="100" cx="100" stroke-width="3" stroke="#ffffff" fill="#000" />
 					<path class={style.bg} transform="translate (0,-13)" d="m40.32092,163.95455a79.14646,78.68765 0 1 1 121.21743,0" fill="none" stroke-width="11" />
@@ -26,11 +29,8 @@ export default class Wind extends Component {
 					<text class={style.speedText} font-family="Sans-serif" font-size="18" id="speedText" stroke="#ff0000" stroke-width="0" text-anchor="middle" x="100" y="130">{this.props.speed} mph</text>
 					<path class={style.pointer} transform={this.rotatePointer()} d="M100,180 L110,150 L90,150 z" />
 				</svg>
-				<p id={style.windText}>{this.windText()}</p>
-			</div>
-				<div>
-					<img src={this.iconString()} class={style.image}></img>
-				</div>
+				<div class={style.windText}>{this.windText()}</div>
+				<img src={this.iconString()} class={style.image}></img>
 			</div>
 		);
 	}
@@ -39,14 +39,14 @@ export default class Wind extends Component {
 		//direction text
 		let direction;
 		//thurso and newquay off-shore wind is south-east
-		if(this.props.compass == 'SE'||this.props.compass == 'SES'||this.props.compass == 'SSE'||this.props.compass == 'SEE'||this.props.compass == 'ESE'||this.props.compass == 'S'||this.props.compass == 'E'){
+		if (this.props.compass == 'SE'||this.props.compass == 'SES'||this.props.compass == 'SSE'||this.props.compass == 'SEE'||this.props.compass == 'ESE'||this.props.compass == 'S'||this.props.compass == 'E'){
 			direction = 'off-shore';
 		}
-		else if(this.props.compass == 'NW'||this.props.compass == 'NNW'||this.props.compass == 'NWW'||this.props.compass == 'NWN'||this.props.compass == 'WNW'||this.props.compass == 'N'||this.props.compass == 'E'){
+		else if (this.props.compass == 'NW'||this.props.compass == 'NNW'||this.props.compass == 'NWW'||this.props.compass == 'NWN'||this.props.compass == 'WNW'||this.props.compass == 'N'||this.props.compass == 'E'){
 
 			direction = 'on-shore';
 		}
-		else{
+		else {
 			direction = 'cross';
 		}
 
