@@ -13,9 +13,12 @@ export default class Stars extends Component {
 		super(props);
 	}
 
+
 	render() {
 		library.add(faStar);
 		return (
+			// This will return non transparent stars corrosponding to the data from props
+			// following the non transparent stars the half transparent stars will follow
 			<div class = {style.stars}>
 				{ Array(this.props.stars).fill(<FontAwesomeIcon icon={faStar} style={{width: "15px"}}/>)}
 				{ !isNaN(5-this.props.stars) ? Array(5-this.props.stars).fill(<FontAwesomeIcon icon={faStar} style={{opacity : 0.5, width: "15px"}}/>) : null}

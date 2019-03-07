@@ -11,6 +11,7 @@ export default class Title extends Component {
 	}
 
 	render() {
+		//returns uppercase with title style
 		return <div class={style.title}>{this.props.text.toUpperCase()}</div>;
 	}
 }

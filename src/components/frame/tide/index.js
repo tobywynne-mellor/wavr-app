@@ -11,7 +11,7 @@ export default class Tide extends Component {
 	constructor(props) {
 		super(props);
 		this.constructPoints = this.constructPoints.bind(this);
-		this.svgPath = this.svgPath.bind(this);
+		this.svgBuild = this.svgBuild.bind(this);
 		this.lineCommand = this.lineCommand.bind(this);
 		this.line = this.line.bind(this);
 		this.controlPoint = this.controlPoint.bind(this);
@@ -23,30 +23,34 @@ export default class Tide extends Component {
 		return (
 			<div class={style.tide}>
 				<Title text="Tide" />
-				{ this.props.points.length !== 0 ? (
+				{/* {Make sure props have loaded} */}
+				{this.props.points.length !== 0 ? (
 					<svg class={style.svg} viewBox="0 0 350 90">
 						<rect class={style.backdrop} x="0" y="20" width="350" height="50"></rect>
-						<path class={style.wave} d={this.svgPath(this.constructPoints(this.props.points), this.bezierCommand)}></path>
+						<path class={style.wave} d={this.svgBuild(this.constructPoints(this.props.points), this.bezierCommand)}></path>
 						<text class={style.text} x={this.props.points[0][0] - 12} y={this.adjustPosition(this.props.points[0][1])}>{this.props.times.time[0]}</text>
 						<text class={style.text} x={this.props.points[1][0] - 12} y={this.adjustPosition(this.props.points[1][1])}>{this.props.times.time[1]}</text>
 						<text class={style.text} x={this.props.points[2][0] - 10} y={this.adjustPosition(this.props.points[2][1])}>{this.props.times.time[2]}</text>
 						{this.props.points.length > 3 ? <text class={style.text} x={this.props.points[3][0] - 20} y={this.adjustPosition(this.props.points[3][1])}>{this.props.times.time[3]}</text> : null}
 						<rect class={style.coverPane} x="0" y="20" width={this.props.time / 24 * 350} height="50"></rect>
-						<rect class={style.coverPane} x={(this.props.time / 24 * 350) + 43 } y="20" width={350 - (this.props.time / 24 * 350)} height="50"></rect>
+						<rect class={style.coverPane} x={(this.props.time / 24 * 350) + 43} y="20" width={350 - (this.props.time / 24 * 350)} height="50"></rect>
 						<line class={style.timeBar} x1={(this.props.time / 24 * 350) + 1} y1="18" x2={(this.props.time / 24 * 350) + 1} y2="72"></line>
-						<line class={style.timeBar} x1={(this.props.time / 24 * 350) + 43 } y1="18" x2={(this.props.time / 24 * 350) + 43} y2="72"></line>
+						<line class={style.timeBar} x1={(this.props.time / 24 * 350) + 43} y1="18" x2={(this.props.time / 24 * 350) + 43} y2="72"></line>
 					</svg>
 				) : (
-					<svg class={style.svg} viewBox="0 0 350 90">
-						<rect class={style.backdrop} x="0" y="20" width="350" height="50"></rect>
-						<text class={style.loadingText} x="136" y="45">Loading...</text>
-					</svg>
-				)}
-				
+						// if props dont load show box with loading...
+						<svg class={style.svg} viewBox="0 0 350 90">
+							<rect class={style.backdrop} x="0" y="20" width="350" height="50"></rect>
+							<text class={style.loadingText} x="136" y="45">Loading...</text>
+						</svg>
+					)}
+
 			</div>
 		);
 	}
 
+	// this is used to dynamically position the time labels either at the top
+	// or bottom of the tide graph svg according to the position of the "wave" point
 	adjustPosition(y) {
 		if (y < 50) {
 			y = y - 4;
@@ -55,9 +59,13 @@ export default class Tide extends Component {
 		}
 		return y;
 	}
-	
+
+	// ensures the "wave" is smooth at the beginning and end
+	// by adding points to the bezier curve.
+	// this gives the illusion that the curve is continuous even though
+	// the component only has 3/4 data points
 	constructPoints(points) {
-		
+
 		let arr = [];
 
 		for (let i = 0; i < points.length; i++) {
@@ -66,28 +74,28 @@ export default class Tide extends Component {
 
 		if (arr[0][1] < 50) {
 			// add 1 low point before if high
-			arr.unshift([arr[0][0]  - (arr[1][0] - arr[0][0]), 70]);
+			arr.unshift([arr[0][0] - (arr[1][0] - arr[0][0]), 70]);
 		} else {
 			// add 2 point before if low
-			arr.unshift([arr[0][0] - arr[0][0] - arr[1][0] , 21]);
-			arr.unshift([arr[0][0] - arr[0][0] - arr[1][0] , 70]);
+			arr.unshift([arr[0][0] - arr[0][0] - arr[1][0], 21]);
+			arr.unshift([arr[0][0] - arr[0][0] - arr[1][0], 70]);
 		}
-		
-		if (arr[arr.length-1][1] > 50) {
+
+		if (arr[arr.length - 1][1] > 50) {
 			// add 2 points after if end on low
-			arr.push([arr[arr.length-1][0] + arr[arr.length-1][0] - arr[arr.length-2][0], 21]);
-			arr.push([arr[arr.length-1][0] + arr[arr.length-1][0] - arr[arr.length-2][0], 70]);
+			arr.push([arr[arr.length - 1][0] + arr[arr.length - 1][0] - arr[arr.length - 2][0], 21]);
+			arr.push([arr[arr.length - 1][0] + arr[arr.length - 1][0] - arr[arr.length - 2][0], 70]);
 		} else {
 			// add 1 low point after if end on high
-			arr.push([arr[arr.length-1][0] + arr[arr.length-1][0] - arr[arr.length-2][0], 70]);
-			arr.push([arr[arr.length-1][0] + arr[arr.length-1][0] - arr[arr.length-2][0], 21]);
-			arr.push([arr[arr.length-1][0] + arr[arr.length-1][0] - arr[arr.length-2][0], 70]);
+			arr.push([arr[arr.length - 1][0] + arr[arr.length - 1][0] - arr[arr.length - 2][0], 70]);
+			arr.push([arr[arr.length - 1][0] + arr[arr.length - 1][0] - arr[arr.length - 2][0], 21]);
+			arr.push([arr[arr.length - 1][0] + arr[arr.length - 1][0] - arr[arr.length - 2][0], 70]);
 		}
 		return arr;
 	}
 
-	svgPath(points, command) {
-		// build the d attributes by looping over the points
+	//Build the svg wave
+	svgBuild(points, command) {
 		const d = points.reduce((acc, point, i, a) => i === 0
 			// if first point
 			? `M ${point[0]},${point[1]}`
@@ -97,10 +105,12 @@ export default class Tide extends Component {
 		return `${d}`;
 	}
 
+	// utility function to build svg lines
 	lineCommand(point) {
 		`L ${point[0]} ${point[1]}`;
 	}
 
+	// utility function to give angle and length of lines
 	line(pointA, pointB) {
 
 		const lengthX = pointB[0] - pointA[0];

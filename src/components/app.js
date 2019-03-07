@@ -57,6 +57,7 @@ export default class App extends Component {
 		};
 	}
 
+	// function is passed to child component 'frame' to allow the trigger of new api call
 	changeLocation(val) {
 
 		if (val === "newquay" && this.state.location.name.toUpperCase() !== "NEWQUAY"){
@@ -142,9 +143,10 @@ export default class App extends Component {
 		);
 	}
 
-	//called after render
+	// called after render
+	// fetch data for location in state
+	// and trigger loading screen
 	componentDidMount() {
-		console.log("Fetching data from API...");
 		this.fetchTideData(this.state.location.tide);
 		this.fetchWeatherData(this.state.location.weather);
 
@@ -157,6 +159,8 @@ export default class App extends Component {
 	}
 
 	//called after location change
+	// if location has changed in state then fetch data for that location
+	// and trigger loading screen
 	componentDidUpdate(prevProps, prevState) {
 		if (prevState.location.name !== this.state.location.name) {
 			this.fetchTideData(this.state.location.tide);
