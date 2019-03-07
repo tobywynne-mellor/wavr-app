@@ -11,7 +11,7 @@ export default class Menu extends Component {
 	constructor(props) {
 		super(props);
 
-		this.menuClose = this.menuClose.bind(this)
+		this.menuClose = this.menuClose.bind(this);
 		this.state.open = false;
 	}
 
