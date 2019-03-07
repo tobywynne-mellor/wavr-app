@@ -2,8 +2,8 @@
 
 ## To-Do List
 - Lorenzo
-    1. Swell
-        - add tootip to explain swell
+    1. favicon make round with transparency
+    2. wave.png
 
 ## points to bring up at meeting (from Oscar)
 - sort the merge out from oscarUpdates and master
