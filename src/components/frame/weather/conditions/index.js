@@ -37,7 +37,6 @@ export default class Wind extends Component {
 
 	windText(){
 		//wind description text
-
 		//direction text
 		let direction;
 		//thurso and newquay off-shore wind is south-east
