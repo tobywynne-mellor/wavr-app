@@ -2,27 +2,19 @@
 
 ## To-Do List
 - Lorenzo
-    1. favicon make round with transparency
-    2. wave.png
-
-## points to bring up at meeting (from Oscar)
-- sort the merge out from oscarUpdates and master
-	- transitions
-	- wind text
-
-## points to bring up at meeting (from Toby)
-- show loading text when tide is loading
-- redefine grid for weather so it looks good on safari
-    - 3x3 grid
-        - wrap both temps and icons in divs, display flex column
-            - 1st col 1 row 1
-            - 2nd col 1 row 2
-        - compass, display flex column
-            - col 2, row 1 / span 2
-        - weather icon, display flex
-            - col 3 row 1 / span 2
-        - wind text
-            - col 1 / span 3, row 3
+    - contribution.txt
+- Toby
+    - redefine grid for weather so it looks good on safari
+        - 3x3 grid
+            - wrap both temps and icons in divs, display flex column
+                - 1st col 1 row 1
+                - 2nd col 1 row 2
+            - compass, display flex column
+                - col 2, row 1 / span 2
+            - weather icon, display flex
+                - col 3 row 1 / span 2
+            - wind text
+                - col 1 / span 3, row 3
 
 ## points to bring up at meeting (from Lorenzo)
 - I'd remove the rating at the top near the location: it doesn't specify what it is, it might be not clear.
