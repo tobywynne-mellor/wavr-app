@@ -1,5 +1,13 @@
 # Wavr - The Surfer's Weather App
-Please follow the installation steps and the development workflow to run the app.
+>Please follow the installation steps and the development workflow to run the app.
+Or follow these steps to get it up and running quickly.
+
+
+### Quickstart Guide
+```sh
+npm install
+npm start
+```
 
 
 ## Set-Up Guide
