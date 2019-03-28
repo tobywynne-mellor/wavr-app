@@ -41,8 +41,8 @@ export default class Menu extends Component {
 						<div class = {style.day}>{this.props.day.toUpperCase().substring(0,3)}</div>
 						<div class = {style.time}>{this.props.time}</div>
 					</div>
-					<div class = {style.stars}>
-						<Stars stars = {this.props.rating} class = {style.stars}/>
+					<div class = {style.stars} tooltip="current surf rating" tooltip-position="right">
+						<Stars stars = {this.props.rating} class = {style.stars} />
 					</div>
 				</div>
 				{this.state.open ?
