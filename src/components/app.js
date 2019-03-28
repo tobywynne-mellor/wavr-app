@@ -6,6 +6,7 @@ import $ from 'jquery';
 import { isBoolean } from 'util';
 import Frame from './frame';
 import Loading from './loading';
+import Error from './error'
 import style from './style';
 
 
@@ -20,6 +21,7 @@ export default class App extends Component {
 		this.state.mswLoading = true;
 		this.state.admiralLoading = true;
 		this.state.delay = true;
+		this.state.failed = false;
 
 		this.state = {
 			location : {
@@ -92,6 +94,7 @@ export default class App extends Component {
 		})
 		.fail((req, err) => {
 			console.log('API call failed ' + err);
+			this.setState({failed : true});
 		});
 	}
 
@@ -125,6 +128,7 @@ export default class App extends Component {
 			})
 			.fail((req, err) => {
 				console.log('API call failed ' + err);
+				this.setState({failed : true});
 			});
 		});
 	}
@@ -134,7 +138,7 @@ export default class App extends Component {
 		return (
 			<div class ={ style.app }>
 				{this.state.delay === undefined || this.state.delay || this.state.mswLoading || this.state.admiralLoading ? (
-					<Loading/>
+					this.state.failed ? (<Error/>) : (<Loading/>)
 				) : (
 					<Frame data = { this.state } changeLocation = { this.changeLocation }/>
 				)}

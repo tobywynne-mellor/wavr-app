@@ -8,16 +8,16 @@ export default class Loading extends Component {
 	constructor(props){
 		super(props);
 	}
-    
+
+
 	render() {
 		return (
-			<div class={style.loader}>
-				<div class={style.loader__background}>
-					<div class={style.loader__inner}></div>
+				<div class={ style.loader }>
+					<div class={style.loader__background}>
+						<div class={style.loader__inner}></div>
+					</div>
+					<div class={style.loaderText}>wavr</div>
 				</div>
-				<div class={style.loaderText}>
-					wavr
-				</div>
-			</div>);
+		);
 	}
 }
