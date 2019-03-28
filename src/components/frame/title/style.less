@@ -1,14 +1,22 @@
 @import '../../../style/wavrStyle.less';
 
-.box{
-  display: grid;
-  grid-template-columns: auto 3% 80%;
-  grid-template-rows: 100%;
-}
-
 .title{
   grid-column: 1 / span 2;
   align-self: center;
   .titleFont;
   font-weight: bold;
+  
+}
+
+.titleText {
+  display: inline;
+}
+
+.icon {
+  display: inline;
+  margin-left: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }

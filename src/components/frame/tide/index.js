@@ -22,7 +22,7 @@ export default class Tide extends Component {
 	render() {
 		return (
 			<div class={style.tide}>
-				<Title text="Tide" />
+				<Title text="Tide" tooltip="Alternate rising and falling of the sea." />
 				{/* {Make sure props have loaded} */}
 				{this.props.points.length !== 0 ? (
 					<svg class={style.svg} viewBox="0 0 350 90">

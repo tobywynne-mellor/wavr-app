@@ -23,7 +23,7 @@ export default class Swell extends Component {
 	render() {
 		return (
       <div class = { style.swell }>
-				<Title text = "Swell"/>
+				<Title text = "Swell" tooltip="Swell is a measure of how tall and frequent waves are."/>
 				<SwellBoxes swell = { this.props.swell} index = {this.props.index} onHover={this.onHover}/>
 				<SwellGraph swell = { this.props.swell} index = {this.props.index} secondaryShowing={this.state.hoverCheck}/>
       </div>

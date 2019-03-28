@@ -13,7 +13,7 @@ export default class SurfRating extends Component {
 
 	render() {
 		return (
-			<div class={style.cont} tooltip="Testing the tooltip" tooltip-position="left">
+			<div class={style.cont} tooltip="Current quality of surf." tooltip-position="left">
 				SURF RATING
 				<Stars stars = {this.props.rating}/>
 			</div>
