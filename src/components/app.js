@@ -6,7 +6,7 @@ import $ from 'jquery';
 import { isBoolean } from 'util';
 import Frame from './frame';
 import Loading from './loading';
-import Error from './error'
+import Error from './error';
 import style from './style';
 
 

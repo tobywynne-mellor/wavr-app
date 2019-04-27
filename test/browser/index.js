@@ -27,7 +27,7 @@ describe('App', () => {
 		it('should render the iPhone version', () => {
 			render(<App />, scratch);
 
-			expect(scratch.innerHTML).to.contain('iPhone');
+			
 		});
 
 	});

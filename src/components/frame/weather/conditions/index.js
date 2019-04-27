@@ -64,10 +64,10 @@ export default class Wind extends Component {
 		//direction text
 		let direction;
 		//thurso and newquay off-shore wind is south-east
-		if (this.props.compass == 'SE'||this.props.compass == 'SES'||this.props.compass == 'SSE'||this.props.compass == 'SEE'||this.props.compass == 'ESE'||this.props.compass == 'S'||this.props.compass == 'E'){
+		if (this.props.compass === 'SE'||this.props.compass === 'SES'||this.props.compass === 'SSE'||this.props.compass === 'SEE'||this.props.compass === 'ESE'||this.props.compass === 'S'||this.props.compass === 'E'){
 			direction = 'off-shore';
 		}
-		else if (this.props.compass == 'NW'||this.props.compass == 'NNW'||this.props.compass == 'NWW'||this.props.compass == 'NWN'||this.props.compass == 'WNW'||this.props.compass == 'N'||this.props.compass == 'E'){
+		else if (this.props.compass === 'NW'||this.props.compass === 'NNW'||this.props.compass === 'NWW'||this.props.compass === 'NWN'||this.props.compass === 'WNW'||this.props.compass === 'N'||this.props.compass === 'E'){
 
 			direction = 'on-shore';
 		}
