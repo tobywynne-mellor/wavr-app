@@ -4,10 +4,10 @@
   "description": "Preact starter project for a weather app powered by webpack.",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --progress",
-    "start": "serve build -s -c 1",
+    "start": "serve build  -s -c 1",
     "prestart": "npm run build",
-    "build": "cross-env NODE_ENV=production webpack -p --progress",
     "prebuild": "mkdirp build && ncp src/assets build/assets",
+    "build": "cross-env NODE_ENV=production webpack -p --progress",
     "test": "npm run -s lint && npm run -s test:karma",
     "test:karma": "karma start test/karma.conf.js --single-run",
     "lint": "eslint {src,test}"
