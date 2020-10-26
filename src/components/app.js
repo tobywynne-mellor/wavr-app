@@ -80,7 +80,7 @@ export default class App extends Component {
 
 	fetchWeatherData = (id) => {
 		// API URL with a structure of : ttp://api.wunderground.com/api/key/feature/q/country-code/city.json
-		let url = "http://magicseaweed.com/api/228f31c96d7e78544234f9f4f4bd6869/forecast/?spot_id=" + id;
+		let url = "https://magicseaweed.com/api/228f31c96d7e78544234f9f4f4bd6869/forecast/?spot_id=" + id;
 
 		$.ajax({
 			url,
