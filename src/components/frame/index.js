@@ -39,12 +39,10 @@ export default class Frame extends Component {
 	}
 
 	changeTime(val) {
-		window.navigator.vibrate(200);
 		this.setState({ time: val, index: this.calcIndex(val, this.state.day) });
 	}
 
 	changeDay(val) {
-		window.navigator.vibrate(200);
 		this.setState({ day: val, index: this.calcIndex(this.state.time, val) });
 	}
 
