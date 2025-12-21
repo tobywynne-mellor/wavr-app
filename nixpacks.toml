@@ -1,7 +1,7 @@
 providers = ["node"]
 
 [phases.setup]
-nixPkgs = ['nodejs@18']
+nixPkgs = ['nodejs_18']  # Use Nixpkgs attribute naming (nodejs@18 is invalid)
 
 [phases.install]
 cmds = ['npm install']
