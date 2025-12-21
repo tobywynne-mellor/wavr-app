@@ -1,6 +1,4 @@
-providers = [
-  { nodejs.version = "7.4.0" }
-]
+providers = ["nodejs"]
 
 [phases.install]
 cmds = [
