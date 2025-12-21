@@ -15,3 +15,4 @@ cmd = 'npm start'
 [env]
 NODE_ENV = "production"
 NIXPACKS_NO_SELF_HOSTED_NIX = "1"  # Coolify self-hosted optimization
+PHANTOMJS_SKIP_DOWNLOAD = "1"  # Avoid failing on arm64 where PhantomJS binaries are unavailable
