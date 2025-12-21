@@ -1,0 +1,19 @@
+providers = [
+  { nodejs.version = "7.4.0" }
+]
+
+[phases.install]
+cmds = [
+  'npm install'
+]
+
+[phases.build]
+cmds = ['npm run build']
+
+[phases.start]
+cmds = ['npm start']
+
+[env]
+NODE_ENV = "production"
+NIXPACKS_NO_SELF_HOSTED_NIX = "1"  # Coolify self-hosted optimization
+
