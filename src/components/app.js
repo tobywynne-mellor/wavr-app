@@ -1,9 +1,6 @@
 // import preact
 import { h, render, Component } from 'preact';
 import 'preact/devtools';
-// import jquery for API calls
-import $ from 'jquery';
-import { isBoolean } from 'util';
 import Frame from './frame';
 import Loading from './loading';
 import Error from './error';
@@ -18,43 +15,43 @@ export default class App extends Component {
 		super(props);
 
 		this.changeLocation = this.changeLocation.bind(this);
-		this.state.mswLoading = true;
-		this.state.admiralLoading = true;
-		this.state.delay = true;
-		this.state.failed = false;
 
 		this.state = {
-			location : {
-				name : "Thurso",
-				tide : "0298",
-				weather : "47"
+			mswLoading: true,
+			admiralLoading: true,
+			delay: true,
+			failed: false,
+			location: {
+				name: "Thurso",
+				tide: "0298",
+				weather: "47"
 			},
-			timestamp : [],
-			solidRating : [],
-			swell : {
-				primary : {
-					direction : [],
-					height : [],
-					period : []
+			timestamp: [],
+			solidRating: [],
+			swell: {
+				primary: {
+					direction: [],
+					height: [],
+					period: []
 				},
-				secondary : {
-					direction : [],
-					height : [],
-					period : []
+				secondary: {
+					direction: [],
+					height: [],
+					period: []
 				}
 			},
-			weather : {
-				temperature : [],
-				chill : [],
-				iconNo : [],
-				windSpeed : [],
-				compassDirection : [],
-				windDirection : []
+			weather: {
+				temperature: [],
+				chill: [],
+				iconNo: [],
+				windSpeed: [],
+				compassDirection: [],
+				windDirection: []
 			},
-			tide : {
-				eventType : [],
-				dateTime : [],
-				height : []
+			tide: {
+				eventType: [],
+				dateTime: [],
+				height: []
 			}
 		};
 	}
@@ -73,63 +70,90 @@ export default class App extends Component {
 
 	/*=============================================
 		fetchWeatherData Function
-		-> Calls magicseaweed api for weather data
-		ThursoID = 47
-		NewquayID = 1
+		-> Populates state with dummy weather data
 	===============================================*/
 
-	fetchWeatherData = (id) => {
-		// API URL with a structure of : ttp://api.wunderground.com/api/key/feature/q/country-code/city.json
-		let url = "https://magicseaweed.com/api/228f31c96d7e78544234f9f4f4bd6869/forecast/?spot_id=" + id;
+	fetchWeatherData = () => {
+		const directions = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"];
+		const data = {
+			timestamp: [],
+			solidRating: [],
+			swell: {
+				primary: { direction: [], height: [], period: [] },
+				secondary: { direction: [], height: [], period: [] }
+			},
+			weather: {
+				temperature: [],
+				chill: [],
+				iconNo: [],
+				windSpeed: [],
+				compassDirection: [],
+				windDirection: []
+			}
+		};
 
-		$.ajax({
-			url,
-			dataType: "jsonp"
-		})
-		.done((data) => {
-			// console.log("fetchWeatherData success");
-			this.parseResponse(data, "weather");
-			this.setState({mswLoading : false});
+		const base = Date.now();
 
-		})
-		.fail((req, err) => {
-			console.log('API call failed ' + err);
-			this.setState({failed : true});
+		for (let i = 0; i < 24; i++) {
+			data.timestamp.push(new Date(base + (i * 3 * 60 * 60 * 1000)).toISOString());
+			data.solidRating.push(2 + (i % 3));
+
+			data.swell.primary.direction.push((180 + (i * 7)) % 360);
+			data.swell.primary.height.push(Math.round((1.2 + (i % 4) * 0.3) * 10) / 10);
+			data.swell.primary.period.push(8 + (i % 3));
+
+			data.swell.secondary.direction.push((210 + (i * 5)) % 360);
+			data.swell.secondary.height.push(Math.round((0.4 + (i % 2) * 0.2) * 10) / 10);
+			data.swell.secondary.period.push(9 + (i % 2));
+
+			data.weather.temperature.push(14 + (i % 6));
+			data.weather.chill.push(12 + (i % 6));
+			data.weather.iconNo.push([1, 2, 3, 4, 20][i % 5]);
+			data.weather.windSpeed.push(8 + (i % 5));
+			data.weather.compassDirection.push(directions[i % directions.length]);
+			data.weather.windDirection.push((i * 15) % 360);
+		}
+
+		this.setState({
+			...data,
+			mswLoading: false,
+			failed: false
 		});
 	}
 
 	/*=============================================
 		fetchTideData Function
-			-> Calls admiralty api for tide data
-			ThursoID = 0298
-			NewquayID = 0546
+			-> Populates state with dummy tide data
 	===============================================*/
 
-	fetchTideData = (id) => {
-		$(() => {
-			let params = {
-				// Request parameters
-				"duration": "3" //in days range from 1 to 7
-			};
-			$.ajax({
-				url: "https://cors-anywhere.herokuapp.com/https://admiraltyapi.azure-api.net/uktidalapi/api/V1/Stations/"+id+"/TidalEvents?" + $.param(params),
-				beforeSend(xhrObj){
-					// Request headers
-					xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","6cf59ae8480d4de2be13bae105e17196");
-				},
-				type: "GET",
-				// Request body
-				data: "{body}"
-			})
-			.done((data) => {
-				// console.log("fetchTideData success");
-				this.parseResponse(data, "tide");
-				this.setState({admiralLoading : false});
-			})
-			.fail((req, err) => {
-				console.log('API call failed ' + err);
-				this.setState({failed : true});
-			});
+	fetchTideData = () => {
+		const tideData = {
+			eventType: [
+				"LowWater", "HighWater", "LowWater", "HighWater",
+				"LowWater", "HighWater", "LowWater", "HighWater",
+				"LowWater", "HighWater", "LowWater", "HighWater"
+			],
+			dateTime: [
+				"2025-12-21T01:05:00Z",
+				"2025-12-21T07:30:00Z",
+				"2025-12-21T13:15:00Z",
+				"2025-12-21T19:40:00Z",
+				"2025-12-22T02:10:00Z",
+				"2025-12-22T08:00:00Z",
+				"2025-12-22T14:05:00Z",
+				"2025-12-22T20:10:00Z",
+				"2025-12-23T03:00:00Z",
+				"2025-12-23T09:05:00Z",
+				"2025-12-23T15:00:00Z",
+				"2025-12-23T21:10:00Z"
+			],
+			height: [0.8, 3.4, 1.1, 3.2, 0.9, 3.5, 1.2, 3.3, 1.0, 3.6, 1.3, 3.4]
+		};
+
+		this.setState({
+			tide: tideData,
+			admiralLoading: false,
+			failed: false
 		});
 	}
 
@@ -151,8 +175,8 @@ export default class App extends Component {
 	// fetch data for location in state
 	// and trigger loading screen
 	componentDidMount() {
-		this.fetchTideData(this.state.location.tide);
-		this.fetchWeatherData(this.state.location.weather);
+		this.fetchTideData();
+		this.fetchWeatherData();
 
 		setTimeout(
 			() => {
@@ -167,8 +191,8 @@ export default class App extends Component {
 	// and trigger loading screen
 	componentDidUpdate(prevProps, prevState) {
 		if (prevState.location.name !== this.state.location.name) {
-			this.fetchTideData(this.state.location.tide);
-			this.fetchWeatherData(this.state.location.weather);
+			this.fetchTideData();
+			this.fetchWeatherData();
 			this.setState({delay : true});
 			setTimeout(
 				() => {
@@ -179,88 +203,4 @@ export default class App extends Component {
 		}
 	}
 
-	/*===============================
-		parseResponse
-			-> parses data from APIs and stores in state
-	=================================*/
-
-	parseResponse = (parsed_json, mode) => {
-
-		if (mode === "tide"){
-
-			let data = {
-				"eventType" : [],
-				"dateTime" : [],
-				"height" : []
-			};
-
-			parsed_json.forEach(point => {
-				data.eventType.push(point.EventType);
-				data.dateTime.push(point.DateTime);
-				data.height.push(Math.round(point.Height*10)/10);
-			});
-
-			this.setState(Object.assign(this.state.tide, data));
-
-
-		} else if (mode === "weather") {
-
-			//create data structure
-			let data = {
-				"timestamp" : [],
-				"solidRating" : [],
-				"swell" : {
-					"primary" : {
-						"direction" : [],
-						"height" : [],
-						"period" : []
-					},
-					"secondary" : {
-						"direction" : [],
-						"height" : [],
-						"period" : []
-					}
-				},
-				"weather" : {
-					"temperature" : [],
-					"chill" : [],
-					"iconNo" : [],
-					"windSpeed" : [],
-					"compassDirection" : [],
-					"windDirection" : []
-				}
-			};
-
-			//parse data into stucture
-			parsed_json.forEach(point => {
-				data.timestamp.push(point.timestamp);
-				data.solidRating.push(point.solidRating);
-				data.swell.primary.direction.push(point.swell.components.primary.direction);
-				data.swell.primary.height.push(point.swell.components.primary.height);
-				data.swell.primary.period.push(point.swell.components.primary.period);
-				if (typeof point.swell.components.secondary === "undefined") {
-					data.swell.secondary.direction.push(null);
-					data.swell.secondary.height.push(null);
-					data.swell.secondary.period.push(null);
-				} else {
-					data.swell.secondary.direction.push(point.swell.components.secondary.direction);
-					data.swell.secondary.height.push(point.swell.components.secondary.height);
-					data.swell.secondary.period.push(point.swell.components.secondary.period);
-				}
-				data.weather.temperature.push(point.condition.temperature);
-				data.weather.chill.push(point.wind.chill);
-				data.weather.iconNo.push(point.condition.weather);
-				data.weather.windSpeed.push(point.wind.speed);
-				data.weather.compassDirection.push(point.wind.compassDirection);
-				data.weather.windDirection.push(point.wind.direction);
-			});
-
-			//set state
-			this.setState(Object.assign(this.state, data));
-
-
-		} else {
-			console.log("error @parseResponse - unrecognised 'mode' argument: " + mode);
-		}
-	}
 }
