@@ -4,7 +4,8 @@ providers = ["node"]
 nixPkgs = ['nodejs_18']  # Use Nixpkgs attribute naming (nodejs@18 is invalid)
 
 [phases.install]
-cmds = ['npm install']
+# Skip postinstall scripts to avoid phantomjs-prebuilt binary download on arm.
+cmds = ['PHANTOMJS_SKIP_DOWNLOAD=true npm install --ignore-scripts']
 
 [phases.build]
 cmds = ['npm run build']
